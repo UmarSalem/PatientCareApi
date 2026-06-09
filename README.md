@@ -17,15 +17,12 @@ The project is being built feature by feature so it can be demonstrated as both 
 
 ## Current Status
 
-Feature 01 creates the solution structure and the Domain model.
+Feature 02 adds the Application contracts.
 
-Created projects:
+Completed so far:
 
-- `PatientCareApi.Domain`
-- `PatientCareApi.Application`
-- `PatientCareApi.Infrastructure`
-- `PatientCareApi.Api`
-- `PatientCareApi.Tests`
+- Feature 01: solution structure and Domain model
+- Feature 02: DTOs, repository interfaces, and service interfaces
 
 ## How To Run
 
@@ -73,11 +70,13 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For this first feature:
+For Feature 02:
 
 ```powershell
-git checkout -b feature/01-solution-and-domain
+git checkout development
+git pull origin development
+git checkout -b feature/02-application-contracts
 git add .
-git commit -m "Add solution architecture and domain model"
-git push -u origin feature/01-solution-and-domain
+git commit -m "Add application DTOs and contracts"
+git push -u origin feature/02-application-contracts
 ```

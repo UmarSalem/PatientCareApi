@@ -42,6 +42,7 @@ public class Appointment
     public DateTime UpdatedAt { get; private set; }
     public Patient Patient { get; private set; } = null!;
 
+    // Status changes are domain behavior, so they stay on the entity instead of in controllers.
     public void Complete()
     {
         if (Status == AppointmentStatus.Cancelled)
@@ -53,6 +54,7 @@ public class Appointment
         UpdatedAt = DateTime.UtcNow;
     }
 
+    // The entity protects invalid transitions, such as cancelling an already completed appointment.
     public void Cancel()
     {
         if (Status == AppointmentStatus.Completed)
