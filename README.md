@@ -17,19 +17,15 @@ The project is being built feature by feature so it can be demonstrated as both 
 
 ## Current Status
 
-Feature 01 creates the solution structure and the Domain model.
+Completed so far:
 
-Created projects:
-
-- `PatientCareApi.Domain`
-- `PatientCareApi.Application`
-- `PatientCareApi.Infrastructure`
-- `PatientCareApi.Api`
-- `PatientCareApi.Tests`
+- Feature 01: solution structure and Domain model
+- Feature 02: DTOs, repository interfaces, service interfaces, and Unit of Work contract
+- Feature 03: Application services, validation helper, DTO mapping, and custom not-found exception
 
 ## How To Run
 
-The runnable API will be completed in a later feature after services, repositories, EF Core, and controllers are added.
+The runnable API will be completed in a later feature after EF Core, dependency injection, and controllers are added.
 
 Later, the command will be:
 
@@ -73,11 +69,10 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For this first feature:
+For Feature 03:
 
 ```powershell
-git checkout -b feature/01-solution-and-domain
 git add .
-git commit -m "Add solution architecture and domain model"
-git push -u origin feature/01-solution-and-domain
+git commit -m "Add application service implementations"
+git push -u origin feature/03-application-services
 ```

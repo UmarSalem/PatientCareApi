@@ -30,6 +30,9 @@ This file tracks the REST endpoints planned for PatientCareApi.
 | PATCH | `/api/appointments/{id}/complete` | Mark an appointment as completed |
 | PATCH | `/api/appointments/{id}/cancel` | Mark an appointment as cancelled |
 
-## Current Status
+## Application Use Cases Implemented
 
-The endpoints are planned. Controllers will be implemented in a later feature.
+- Create, update, get, and delete patients
+- Get all treatments and create a treatment for a patient
+- Get all appointments and create appointments
+- Complete and cancel appointments through domain methods

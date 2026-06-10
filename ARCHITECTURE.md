@@ -19,21 +19,32 @@ The Domain project does not depend on any other project.
 
 ### PatientCareApi.Application
 
-Will contain DTOs, repository interfaces, service interfaces, service implementations, validation, and mapping.
+Contains DTOs, repository interfaces, service interfaces, service implementations, validation, mapping, application exceptions, and the Unit of Work contract.
 
-Application will depend only on Domain.
+Application depends only on Domain.
+
+Current Application folders:
+
+- `Dtos`
+- `Repositories`
+- `Services`
+- `Mapping`
+- `Validation`
+- `Exceptions`
+
+Repository interfaces describe data access operations. Service interfaces describe use cases. Service implementations coordinate workflows. `IUnitOfWork` represents committing all pending repository changes.
 
 ### PatientCareApi.Infrastructure
 
-Will contain EF Core `DbContext` and repository implementations.
+Will contain EF Core `DbContext`, repository implementations, and the Unit of Work implementation.
 
-Infrastructure will depend on Application and Domain.
+Infrastructure depends on Application and Domain.
 
 ### PatientCareApi.Api
 
 Will contain controllers, dependency injection, Swagger/OpenAPI, appsettings, and global error handling middleware.
 
-Api will depend on Application and Infrastructure.
+Api depends on Application and Infrastructure.
 
 ### PatientCareApi.Tests
 
