@@ -36,9 +36,16 @@ Repository interfaces describe data access operations. Service interfaces descri
 
 ### PatientCareApi.Infrastructure
 
-Will contain EF Core `DbContext`, repository implementations, and the Unit of Work implementation.
+Contains EF Core `DbContext`, repository implementations, and the Unit of Work implementation.
 
 Infrastructure depends on Application and Domain.
+
+Current Infrastructure folders:
+
+- `Data`
+- `Repositories`
+
+`PatientCareDbContext` maps domain entities to database tables. Repository classes use EF Core to query and stage changes. `UnitOfWork` calls `SaveChangesAsync` once a service workflow is ready to commit.
 
 ### PatientCareApi.Api
 

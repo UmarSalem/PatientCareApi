@@ -22,10 +22,11 @@ Completed so far:
 - Feature 01: solution structure and Domain model
 - Feature 02: DTOs, repository interfaces, service interfaces, and Unit of Work contract
 - Feature 03: Application services, validation helper, DTO mapping, and custom not-found exception
+- Feature 04: EF Core DbContext, repository implementations, and Unit of Work implementation
 
 ## How To Run
 
-The runnable API will be completed in a later feature after EF Core, dependency injection, and controllers are added.
+The runnable API will be completed in a later feature after dependency injection and controllers are added.
 
 Later, the command will be:
 
@@ -69,10 +70,17 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 03:
+For Feature 04:
 
 ```powershell
+git stash push -u -m "feature 04 infrastructure persistence"
+git checkout development
+git pull origin development
+git checkout -B feature/04-infrastructure-persistence
+git stash pop
+dotnet restore --configfile NuGet.Config
+dotnet build --no-restore
 git add .
-git commit -m "Add application service implementations"
-git push -u origin feature/03-application-services
+git commit -m "Add infrastructure persistence"
+git push -u origin feature/04-infrastructure-persistence
 ```

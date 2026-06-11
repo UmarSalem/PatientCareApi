@@ -44,6 +44,8 @@ public class PatientService : IPatientService
             request.PhoneNumber);
 
         await _patientRepository.AddAsync(patient, cancellationToken);
+
+        // Repositories stage data changes; UnitOfWork commits them with one database save.
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return patient.ToResponse();

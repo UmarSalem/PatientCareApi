@@ -36,3 +36,9 @@ This file tracks the REST endpoints planned for PatientCareApi.
 - Get all treatments and create a treatment for a patient
 - Get all appointments and create appointments
 - Complete and cancel appointments through domain methods
+
+## Persistence Implemented
+
+- EF Core DbContext for patients, treatments, and appointments
+- Repository implementations for Application repository interfaces
+- Unit of Work implementation for committing changes

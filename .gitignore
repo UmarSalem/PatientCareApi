@@ -27,3 +27,5 @@ coverage/
 project.assets.json
 *.nuget.g.props
 *.nuget.g.targets
+.nuget-appdata/
+.nuget-packages/

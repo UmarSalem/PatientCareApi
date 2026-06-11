@@ -137,3 +137,85 @@ If Feature 02 is not merged into `development`, create the Feature 03 PR against
 base: feature/02-application-contracts
 compare: feature/03-application-services
 ```
+
+## Feature 04: Infrastructure Persistence With EF Core
+
+### What Was Created
+
+- EF Core DbContext:
+  - `PatientCareDbContext`
+- Repository implementations:
+  - `PatientRepository`
+  - `TreatmentRepository`
+  - `AppointmentRepository`
+- Unit of Work implementation:
+  - `UnitOfWork`
+- EF Core SQLite package reference in Infrastructure
+
+### Why It Was Created
+
+The Application layer defines repository interfaces and `IUnitOfWork`. This feature adds the Infrastructure classes that implement those abstractions using EF Core.
+
+This keeps EF Core out of the Domain and Application layers.
+
+Repositories query and stage data changes. `UnitOfWork` commits those changes by calling `DbContext.SaveChangesAsync`.
+
+### Files Changed
+
+- `PatientCareApi.Infrastructure/PatientCareApi.Infrastructure.csproj`
+- `PatientCareApi.Infrastructure/Data/PatientCareDbContext.cs`
+- `PatientCareApi.Infrastructure/Repositories/PatientRepository.cs`
+- `PatientCareApi.Infrastructure/Repositories/TreatmentRepository.cs`
+- `PatientCareApi.Infrastructure/Repositories/AppointmentRepository.cs`
+- `PatientCareApi.Infrastructure/Repositories/UnitOfWork.cs`
+- `PatientCareApi.Application/Services/PatientService.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `API_ENDPOINTS.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+Run:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet build --no-restore
+```
+
+### Repository Implementation Explanation
+
+`PatientRepository` handles patient database operations. `GetAllAsync` uses `AsNoTracking` for read-only performance. `GetByIdAsync` returns a tracked entity because update and delete workflows need EF Core to detect changes.
+
+`TreatmentRepository` handles treatment queries and creation. It filters by `PatientId` in the database instead of loading every treatment into memory.
+
+`AppointmentRepository` handles appointment queries and creation. `GetByIdAsync` returns a tracked appointment so `AppointmentService` can call `Complete()` or `Cancel()` and save the updated status.
+
+`UnitOfWork` owns the final save operation. Repositories do not call `SaveChangesAsync` themselves.
+
+### How To Explain It In An Interview
+
+> I implemented the Infrastructure layer with EF Core. The Application layer defines repository interfaces, and Infrastructure implements them with `PatientCareDbContext`. Read-only queries use `AsNoTracking` for performance. Update scenarios return tracked entities so domain methods can change state and Unit of Work can save once at the end.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 04 infrastructure persistence"     # Save current uncommitted changes, including new files
+git checkout development                                         # Switch to the development branch
+git pull origin development                                      # Get latest development code from GitHub
+git checkout -B feature/04-infrastructure-persistence            # Create/reset the feature branch from development
+git stash pop                                                    # Bring saved Feature 04 changes onto this branch
+dotnet restore --configfile NuGet.Config                         # Restore EF Core SQLite package
+dotnet build --no-restore                                        # Confirm the project builds
+git add .                                                        # Stage all changed files
+git commit -m "Add infrastructure persistence"                   # Save the feature as a commit
+git push -u origin feature/04-infrastructure-persistence         # Push the feature branch to GitHub
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/04-infrastructure-persistence
+```
