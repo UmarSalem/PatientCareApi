@@ -23,14 +23,14 @@ Completed so far:
 - Feature 02: DTOs, repository interfaces, service interfaces, and Unit of Work contract
 - Feature 03: Application services, validation helper, DTO mapping, and custom not-found exception
 - Feature 04: EF Core DbContext, repository implementations, and Unit of Work implementation
+- Feature 05: API dependency injection, Swagger UI, connection string, and REST controllers
 
 ## How To Run
 
-The runnable API will be completed in a later feature after dependency injection and controllers are added.
-
-Later, the command will be:
+The API can run after packages are restored and the database is created through EF Core migrations.
 
 ```powershell
+dotnet restore --configfile NuGet.Config
 dotnet run --project PatientCareApi.Api
 ```
 
@@ -70,17 +70,19 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 04:
+For Feature 05:
 
 ```powershell
-git stash push -u -m "feature 04 infrastructure persistence"
+git stash push -u -m "feature 05 api controllers"
 git checkout development
 git pull origin development
-git checkout -B feature/04-infrastructure-persistence
+git checkout -B feature/05-api-controllers
 git stash pop
 dotnet restore --configfile NuGet.Config
 dotnet build --no-restore
 git add .
-git commit -m "Add infrastructure persistence"
-git push -u origin feature/04-infrastructure-persistence
+git commit -m "Add API dependency injection and controllers"
+git push -u origin feature/05-api-controllers
 ```
+
+See `GIT_WORKFLOW.md` for merge vs rebase notes.
