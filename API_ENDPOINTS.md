@@ -32,4 +32,22 @@ This file tracks the REST endpoints planned for PatientCareApi.
 
 ## Current Status
 
-The endpoints are planned. Controllers will be implemented in a later feature.
+The endpoints are planned. Feature 02 added the DTOs and service interfaces that controllers will use in a later feature.
+
+## DTOs Added
+
+### Patients
+
+- `CreatePatientRequest`
+- `UpdatePatientRequest`
+- `PatientResponse`
+
+### Treatments
+
+- `CreateTreatmentRequest`
+- `TreatmentResponse`
+
+### Appointments
+
+- `CreateAppointmentRequest`
+- `AppointmentResponse`

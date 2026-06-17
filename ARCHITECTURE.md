@@ -19,9 +19,17 @@ The Domain project does not depend on any other project.
 
 ### PatientCareApi.Application
 
-Will contain DTOs, repository interfaces, service interfaces, service implementations, validation, and mapping.
+Contains DTOs, repository interfaces, and service interfaces. It will also contain service implementations, validation, and mapping in later features.
 
 Application will depend only on Domain.
+
+Current Application folders:
+
+- `Dtos`
+- `Repositories`
+- `Services`
+
+The repository interfaces describe the persistence operations the Application layer needs. The service interfaces describe the use cases that the Api layer will call.
 
 ### PatientCareApi.Infrastructure
 
