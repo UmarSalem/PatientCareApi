@@ -137,3 +137,92 @@ If Feature 02 is not merged into `development`, create the Feature 03 PR against
 base: feature/02-application-contracts
 compare: feature/03-application-services
 ```
+
+## Feature 02: Application DTOs And Contracts
+
+### What Was Created
+
+- Patient DTOs:
+  - `CreatePatientRequest`
+  - `UpdatePatientRequest`
+  - `PatientResponse`
+- Treatment DTOs:
+  - `CreateTreatmentRequest`
+  - `TreatmentResponse`
+- Appointment DTOs:
+  - `CreateAppointmentRequest`
+  - `AppointmentResponse`
+- Repository interfaces:
+  - `IPatientRepository`
+  - `ITreatmentRepository`
+  - `IAppointmentRepository`
+- Service interfaces:
+  - `IPatientService`
+  - `ITreatmentService`
+  - `IAppointmentService`
+
+### Why It Was Created
+
+This feature creates the Application layer contracts.
+
+DTOs define what data enters and leaves the API. Repository interfaces define what data operations the service layer needs. Service interfaces define the use cases that controllers will call.
+
+This keeps the API controllers thin and keeps EF Core details outside the Application layer.
+
+### Files Changed
+
+- `PatientCareApi.Application/Dtos/Patients/CreatePatientRequest.cs`
+- `PatientCareApi.Application/Dtos/Patients/UpdatePatientRequest.cs`
+- `PatientCareApi.Application/Dtos/Patients/PatientResponse.cs`
+- `PatientCareApi.Application/Dtos/Treatments/CreateTreatmentRequest.cs`
+- `PatientCareApi.Application/Dtos/Treatments/TreatmentResponse.cs`
+- `PatientCareApi.Application/Dtos/Appointments/CreateAppointmentRequest.cs`
+- `PatientCareApi.Application/Dtos/Appointments/AppointmentResponse.cs`
+- `PatientCareApi.Application/Repositories/IPatientRepository.cs`
+- `PatientCareApi.Application/Repositories/ITreatmentRepository.cs`
+- `PatientCareApi.Application/Repositories/IAppointmentRepository.cs`
+- `PatientCareApi.Application/Services/IPatientService.cs`
+- `PatientCareApi.Application/Services/ITreatmentService.cs`
+- `PatientCareApi.Application/Services/IAppointmentService.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `API_ENDPOINTS.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+Run:
+
+```powershell
+dotnet build
+```
+
+This confirms the Application project still compiles and the dependency rule is respected: Application depends only on Domain.
+
+### How To Explain It In An Interview
+
+You can say:
+
+> I added the Application layer contracts before writing controllers or database code. The DTOs shape API input and output. The service interfaces describe use cases, and the repository interfaces describe persistence needs. This keeps the controller layer thin and keeps EF Core out of the Application layer.
+
+### GitHub Commands For This Feature
+
+Use this branch flow:
+
+```powershell
+git checkout development
+git pull origin development
+git checkout -b feature/02-application-contracts
+git status
+git add .
+git commit -m "Add application DTOs and contracts"
+git push -u origin feature/02-application-contracts
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/02-application-contracts
+```

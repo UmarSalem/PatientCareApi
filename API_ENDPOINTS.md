@@ -32,7 +32,22 @@ This file tracks the REST endpoints planned for PatientCareApi.
 
 ## Application Use Cases Implemented
 
-- Create, update, get, and delete patients
-- Get all treatments and create a treatment for a patient
-- Get all appointments and create appointments
-- Complete and cancel appointments through domain methods
+The endpoints are planned. Feature 02 added the DTOs and service interfaces that controllers will use in a later feature.
+
+## DTOs Added
+
+### Patients
+
+- `CreatePatientRequest`
+- `UpdatePatientRequest`
+- `PatientResponse`
+
+### Treatments
+
+- `CreateTreatmentRequest`
+- `TreatmentResponse`
+
+### Appointments
+
+- `CreateAppointmentRequest`
+- `AppointmentResponse`

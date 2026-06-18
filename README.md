@@ -17,11 +17,12 @@ The project is being built feature by feature so it can be demonstrated as both 
 
 ## Current Status
 
+Feature 02 adds the Application contracts.
+
 Completed so far:
 
 - Feature 01: solution structure and Domain model
-- Feature 02: DTOs, repository interfaces, service interfaces, and Unit of Work contract
-- Feature 03: Application services, validation helper, DTO mapping, and custom not-found exception
+- Feature 02: DTOs, repository interfaces, and service interfaces
 
 ## How To Run
 
@@ -69,10 +70,13 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 03:
+For Feature 02:
 
 ```powershell
+git checkout development
+git pull origin development
+git checkout -b feature/02-application-contracts
 git add .
-git commit -m "Add application service implementations"
-git push -u origin feature/03-application-services
+git commit -m "Add application DTOs and contracts"
+git push -u origin feature/02-application-contracts
 ```
