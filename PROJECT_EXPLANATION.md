@@ -6,7 +6,7 @@ PatientCareApi is a healthcare REST API practice project. The goal is to show cl
 
 ### Domain
 
-The Domain layer contains the core business objects. In this project, those are `Patient`, `Treatment`, and `Appointment`.
+The Domain layer contains the core business objects: `Patient`, `Treatment`, and `Appointment`.
 
 The `Appointment` entity contains important behavior:
 
@@ -17,21 +17,23 @@ This keeps appointment status changes inside the domain object instead of spread
 
 ### Application
 
-The Application layer contains use-case focused contracts:
+The Application layer contains use-case focused code:
 
 - DTOs
 - service interfaces
 - repository interfaces
+- validation
+- mapping
+- application exceptions
+- Unit of Work contract
 
-It will contain service implementations, validation, and mapping in the next Application feature.
-
-This layer will coordinate business workflows without knowing database details.
+This layer coordinates business workflows without knowing database details.
 
 ### Infrastructure
 
 The Infrastructure layer will contain EF Core and SQLite persistence.
 
-It will implement repository interfaces defined by Application.
+It will implement repository interfaces and `IUnitOfWork` from Application.
 
 ### Api
 
@@ -49,24 +51,28 @@ For example, `CreatePatientRequest` represents the JSON body used to create a pa
 
 Services keep controllers small and focused. A controller receives HTTP input, calls a service, and returns a response.
 
-The service interfaces added in Feature 02 describe the operations the API needs, such as creating patients, adding treatments, and completing appointments.
+The service implementations validate requests, check whether required records exist, call domain entities, save through Unit of Work, and return DTO responses.
 
 ## Why Repository Interfaces Are Used
 
 Repository interfaces let Application describe what data operations it needs without depending on EF Core directly. Infrastructure provides the actual EF Core implementation.
 
-This means Application can ask for `IPatientRepository` without knowing whether the data comes from SQLite, SQL Server, or another storage system.
+## Why Unit Of Work Is Used
+
+Some projects call `SaveChangesAsync()` inside each repository or DAO method. That is simple and works well for small CRUD examples.
+
+This project uses `IUnitOfWork` instead. Repositories describe data operations, while `IUnitOfWork` represents committing all pending changes.
+
+The benefit is that a service can coordinate multiple repositories and save once at the end of the workflow.
+
+In an interview, you can explain it like this:
+
+> The service decides when the workflow is complete. The repository handles data access, and Unit of Work handles the save operation. The actual EF Core `SaveChangesAsync` call will live in Infrastructure.
 
 ## How EF Core Will Be Configured
 
 EF Core will be configured in `Program.cs` using `AddDbContext`. The SQLite connection string will come from `appsettings.json`, not from a hardcoded path inside the `DbContext`.
 
-## How Dependency Injection Will Work
-
-The Api project will register services and repositories in the dependency injection container. Controllers will ask for service interfaces through constructors.
-
 ## Interview Explanation
 
-You can explain this project like this:
-
-> I built a healthcare Web API using clean architecture. The Domain layer contains the business entities and rules. The Application layer contains DTOs, service contracts, service logic, and repository contracts. Infrastructure handles EF Core and SQLite. The Api layer exposes controllers and middleware. This keeps business logic away from controllers and keeps EF Core outside the core business model.
+> I built a healthcare Web API using clean architecture. The Domain layer contains the business entities and rules. The Application layer contains DTOs, service contracts, service logic, repository contracts, and a Unit of Work contract. Infrastructure handles EF Core and SQLite. The Api layer exposes controllers and middleware.

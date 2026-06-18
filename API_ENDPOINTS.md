@@ -30,7 +30,7 @@ This file tracks the REST endpoints planned for PatientCareApi.
 | PATCH | `/api/appointments/{id}/complete` | Mark an appointment as completed |
 | PATCH | `/api/appointments/{id}/cancel` | Mark an appointment as cancelled |
 
-## Current Status
+## Application Use Cases Implemented
 
 The endpoints are planned. Feature 02 added the DTOs and service interfaces that controllers will use in a later feature.
 

@@ -26,7 +26,7 @@ Completed so far:
 
 ## How To Run
 
-The runnable API will be completed in a later feature after services, repositories, EF Core, and controllers are added.
+The runnable API will be completed in a later feature after EF Core, dependency injection, and controllers are added.
 
 Later, the command will be:
 
