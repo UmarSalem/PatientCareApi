@@ -42,3 +42,22 @@ This file tracks the REST endpoints planned for PatientCareApi.
 - EF Core DbContext for patients, treatments, and appointments
 - Repository implementations for Application repository interfaces
 - Unit of Work implementation for committing changes
+The endpoints are planned. Feature 02 added the DTOs and service interfaces that controllers will use in a later feature.
+
+## DTOs Added
+
+### Patients
+
+- `CreatePatientRequest`
+- `UpdatePatientRequest`
+- `PatientResponse`
+
+### Treatments
+
+- `CreateTreatmentRequest`
+- `TreatmentResponse`
+
+### Appointments
+
+- `CreateAppointmentRequest`
+- `AppointmentResponse`

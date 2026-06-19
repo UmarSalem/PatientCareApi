@@ -17,6 +17,8 @@ The project is being built feature by feature so it can be demonstrated as both 
 
 ## Current Status
 
+Feature 02 adds the Application contracts.
+
 Completed so far:
 
 - Feature 01: solution structure and Domain model
