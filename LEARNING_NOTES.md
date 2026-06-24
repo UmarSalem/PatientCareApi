@@ -289,3 +289,100 @@ base: development
 compare: feature/04-infrastructure-persistence
 compare: feature/02-application-contracts
 ```
+
+## Feature 05: API Dependency Injection And Controllers
+
+### What Was Created
+
+- SQLite connection string in `appsettings.json`
+- Dependency injection setup in `Program.cs`
+- Swagger UI setup
+- API controllers:
+  - `PatientsController`
+  - `TreatmentsController`
+  - `AppointmentsController`
+- Git workflow notes:
+  - `GIT_WORKFLOW.md`
+
+### Why It Was Created
+
+This feature connects the layers together.
+
+The API project registers the DbContext, repositories, Unit of Work, and services. Controllers use service interfaces, so they stay thin and do not contain business logic.
+
+### Main Logic
+
+`Program.cs` is the composition root. It connects abstractions to implementations:
+
+```csharp
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+```
+
+Controllers handle HTTP concerns:
+
+- route
+- request body
+- status code
+- response DTO
+
+Services handle business workflows.
+
+Infrastructure handles EF Core database access.
+
+### Files Changed
+
+- `PatientCareApi.Api/PatientCareApi.Api.csproj`
+- `PatientCareApi.Api/appsettings.json`
+- `PatientCareApi.Api/Program.cs`
+- `PatientCareApi.Api/Controllers/PatientsController.cs`
+- `PatientCareApi.Api/Controllers/TreatmentsController.cs`
+- `PatientCareApi.Api/Controllers/AppointmentsController.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `API_ENDPOINTS.md`
+- `LEARNING_NOTES.md`
+- `GIT_WORKFLOW.md`
+
+### How To Test It
+
+Run:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet build --no-restore
+dotnet run --project PatientCareApi.Api
+```
+
+Then open:
+
+```text
+https://localhost:<port>/swagger
+```
+
+### How To Explain It In An Interview
+
+> I wired the API layer as the composition root. Program.cs registers EF Core, repositories, Unit of Work, and services with dependency injection. Controllers depend on service interfaces, not repositories or DbContext. This keeps controllers thin and keeps business logic in the Application layer.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 05 api controllers"              # Save current uncommitted changes, including new files
+git checkout development                                      # Switch to development branch
+git pull origin development                                   # Get latest development code
+git checkout -B feature/05-api-controllers                    # Create/reset Feature 05 branch
+git stash pop                                                 # Bring Feature 05 changes back
+dotnet restore --configfile NuGet.Config                      # Restore packages
+dotnet build --no-restore                                     # Confirm build
+git add .                                                     # Stage all files
+git commit -m "Add API dependency injection and controllers"   # Commit feature
+git push -u origin feature/05-api-controllers                 # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/05-api-controllers
+```

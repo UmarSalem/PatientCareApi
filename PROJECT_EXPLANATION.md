@@ -45,9 +45,15 @@ Important Infrastructure classes:
 
 ### Api
 
-The Api layer will expose HTTP endpoints through controllers.
+The Api layer exposes HTTP endpoints through controllers.
 
 Controllers will stay thin. They should call services and return HTTP responses, not contain business logic.
+
+Current controllers:
+
+- `PatientsController`
+- `TreatmentsController`
+- `AppointmentsController`
 
 ## Why DTOs Are Used
 
@@ -90,6 +96,27 @@ Repository interfaces live in Application. Repository implementations live in In
 Read-only list queries use `AsNoTracking()` because EF Core does not need to track changes for data that is only being displayed.
 
 Update and delete workflows return tracked entities, so the service can modify a domain object and `UnitOfWork` can save the change.
+
+## How Dependency Injection Works
+
+`Program.cs` registers interfaces with their implementations.
+
+Examples:
+
+```csharp
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+```
+
+This means controllers ask for interfaces, and ASP.NET Core creates the correct concrete classes at runtime.
+
+## How The API Endpoints Work
+
+Controllers receive HTTP requests, call Application services, and return HTTP responses.
+
+For example, `PatientsController.Create` accepts a `CreatePatientRequest`, calls `IPatientService.CreateAsync`, and returns `201 Created`.
+
+The controller does not validate business rules directly and does not talk to EF Core directly.
 
 ## Interview Explanation
 
