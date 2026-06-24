@@ -2,8 +2,6 @@
 
 This file tracks the REST endpoints planned for PatientCareApi.
 
-Feature 05 implements these endpoints through controllers. Global exception handling will be added in the next API feature so service exceptions become clean HTTP error responses.
-
 ## Patients
 
 | Method | Endpoint | Purpose |
@@ -44,9 +42,22 @@ Feature 05 implements these endpoints through controllers. Global exception hand
 - EF Core DbContext for patients, treatments, and appointments
 - Repository implementations for Application repository interfaces
 - Unit of Work implementation for committing changes
+The endpoints are planned. Feature 02 added the DTOs and service interfaces that controllers will use in a later feature.
 
-## Controllers Implemented
+## DTOs Added
 
-- `PatientsController`
-- `TreatmentsController`
-- `AppointmentsController`
+### Patients
+
+- `CreatePatientRequest`
+- `UpdatePatientRequest`
+- `PatientResponse`
+
+### Treatments
+
+- `CreateTreatmentRequest`
+- `TreatmentResponse`
+
+### Appointments
+
+- `CreateAppointmentRequest`
+- `AppointmentResponse`
