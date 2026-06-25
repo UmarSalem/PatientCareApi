@@ -316,3 +316,90 @@ Create the pull request:
 base: development
 compare: feature/05-api-controllers
 ```
+
+## Feature 06: Global Error Handling Middleware
+
+### What Was Created
+
+- `ErrorHandlingMiddleware`
+- `ErrorResponse`
+- Middleware registration in `Program.cs`
+
+### Why It Was Created
+
+Without global error handling, every controller would need repeated `try/catch` blocks.
+
+This middleware catches exceptions in one place and converts them into consistent JSON HTTP responses.
+
+### Main Logic
+
+The middleware maps exceptions to status codes:
+
+- `NotFoundException` becomes `404 Not Found`
+- `ValidationException` becomes `400 Bad Request`
+- `ArgumentException` becomes `400 Bad Request`
+- unexpected exceptions become `500 Internal Server Error`
+
+The middleware also logs unexpected exceptions and avoids leaking internal exception details in production.
+
+### Files Changed
+
+- `PatientCareApi.Api/Middleware/ErrorHandlingMiddleware.cs`
+- `PatientCareApi.Api/Middleware/ErrorResponse.cs`
+- `PatientCareApi.Api/Program.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `API_ENDPOINTS.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+Run:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet build --no-restore
+dotnet run --project PatientCareApi.Api
+```
+
+Then call an endpoint with an id that does not exist, for example:
+
+```text
+GET /api/patients/999
+```
+
+Expected response:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Patient with id 999 was not found."
+}
+```
+
+### How To Explain It In An Interview
+
+> I added global error handling middleware so controllers do not need repeated try/catch blocks. Services throw exceptions like `NotFoundException`, and the middleware translates them into correct HTTP responses such as 404, 400, or 500.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 06 error handling"          # Save current uncommitted changes, including new files
+git checkout development                                  # Switch to development branch
+git pull origin development                               # Get latest development code
+git checkout -B feature/06-error-handling                 # Create/reset Feature 06 branch
+git stash pop                                             # Bring Feature 06 changes back
+dotnet restore --configfile NuGet.Config                  # Restore packages
+dotnet build --no-restore                                 # Confirm build
+git add .                                                 # Stage all files
+git commit -m "Add global error handling middleware"       # Commit feature
+git push -u origin feature/06-error-handling              # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/06-error-handling
+```

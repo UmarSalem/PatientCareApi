@@ -1,0 +1,1401 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R 22 0 R 24 0 R 26 0 R ] /Count 11 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 3060 >>
+stream
+BT
+/F2 18 Tf
+1 0 0 1 50 795 Tm
+(Backend Interview Q&A Guide) Tj
+/F2 18 Tf
+1 0 0 1 50 771 Tm
+(PatientCareApi Backend Interview Questions And Definitions) Tj
+/F2 14 Tf
+1 0 0 1 50 743 Tm
+(1. How would you describe this project?) Tj
+/F1 10 Tf
+1 0 0 1 50 718 Tm
+(PatientCareApi is an ASP.NET Core Web API for managing patients, treatments, and) Tj
+/F1 10 Tf
+1 0 0 1 50 704 Tm
+(appointments. It uses clean architecture, EF Core with SQLite, DTOs, dependency) Tj
+/F1 10 Tf
+1 0 0 1 50 690 Tm
+(injection, repository interfaces, Unit of Work, Swagger, and global error handling) Tj
+/F1 10 Tf
+1 0 0 1 50 676 Tm
+(middleware.) Tj
+/F2 14 Tf
+1 0 0 1 50 656 Tm
+(2. What is a REST API?) Tj
+/F1 10 Tf
+1 0 0 1 50 631 Tm
+(A REST API is an HTTP-based API that exposes resources through URLs and uses HTTP) Tj
+/F1 10 Tf
+1 0 0 1 50 617 Tm
+(methods to perform actions.) Tj
+/F1 10 Tf
+1 0 0 1 50 597 Tm
+(Common HTTP methods:) Tj
+/F1 10 Tf
+1 0 0 1 64 577 Tm
+(* GET reads data.) Tj
+/F1 10 Tf
+1 0 0 1 64 563 Tm
+(* POST creates data.) Tj
+/F1 10 Tf
+1 0 0 1 64 549 Tm
+(* PUT updates an entire resource.) Tj
+/F1 10 Tf
+1 0 0 1 64 535 Tm
+(* PATCH partially updates a resource or changes one state.) Tj
+/F1 10 Tf
+1 0 0 1 64 521 Tm
+(* DELETE removes data.) Tj
+/F1 10 Tf
+1 0 0 1 50 501 Tm
+(In this project:) Tj
+/F1 10 Tf
+1 0 0 1 64 481 Tm
+(* GET /api/patients gets patients.) Tj
+/F1 10 Tf
+1 0 0 1 64 467 Tm
+(* POST /api/patients creates a patient.) Tj
+/F1 10 Tf
+1 0 0 1 64 453 Tm
+(* PATCH /api/appointments/{id}/complete changes appointment state.) Tj
+/F2 14 Tf
+1 0 0 1 50 433 Tm
+(3. What is ASP.NET Core Web API?) Tj
+/F1 10 Tf
+1 0 0 1 50 408 Tm
+(ASP.NET Core Web API is a Microsoft framework for building HTTP APIs using C# and .NET.) Tj
+/F1 10 Tf
+1 0 0 1 50 388 Tm
+(It gives us:) Tj
+/F1 10 Tf
+1 0 0 1 64 368 Tm
+(* Controllers) Tj
+/F1 10 Tf
+1 0 0 1 64 354 Tm
+(* Routing) Tj
+/F1 10 Tf
+1 0 0 1 64 340 Tm
+(* Middleware) Tj
+/F1 10 Tf
+1 0 0 1 64 326 Tm
+(* Dependency injection) Tj
+/F1 10 Tf
+1 0 0 1 64 312 Tm
+(* Configuration) Tj
+/F1 10 Tf
+1 0 0 1 64 298 Tm
+(* Logging) Tj
+/F1 10 Tf
+1 0 0 1 64 284 Tm
+(* Swagger/OpenAPI support) Tj
+/F2 14 Tf
+1 0 0 1 50 264 Tm
+(4. What is clean architecture?) Tj
+/F1 10 Tf
+1 0 0 1 50 239 Tm
+(Clean architecture separates code into layers with clear responsibilities.) Tj
+/F1 10 Tf
+1 0 0 1 50 219 Tm
+(The inner layer contains business rules.) Tj
+/F1 10 Tf
+1 0 0 1 50 199 Tm
+(The outer layers contain frameworks, databases, and API details.) Tj
+/F1 10 Tf
+1 0 0 1 50 179 Tm
+(In this project:) Tj
+/F1 10 Tf
+1 0 0 1 64 159 Tm
+(* Domain contains business entities.) Tj
+/F1 10 Tf
+1 0 0 1 64 145 Tm
+(* Application contains use cases.) Tj
+/F1 10 Tf
+1 0 0 1 64 131 Tm
+(* Infrastructure contains EF Core and SQLite.) Tj
+/F1 10 Tf
+1 0 0 1 64 117 Tm
+(* Api contains controllers and HTTP setup.) Tj
+/F2 14 Tf
+1 0 0 1 50 97 Tm
+(5. Why should Domain not depend on other projects?) Tj
+/F1 10 Tf
+1 0 0 1 50 72 Tm
+(Domain contains the core business rules.) Tj
+ET
+
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 2801 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(It should not depend on frameworks like EF Core or ASP.NET Core because those are) Tj
+/F1 10 Tf
+1 0 0 1 50 781 Tm
+(technical details.) Tj
+/F1 10 Tf
+1 0 0 1 50 761 Tm
+(This makes the domain easier to test, reuse, and change.) Tj
+/F2 14 Tf
+1 0 0 1 50 741 Tm
+(6. What is a DTO?) Tj
+/F1 10 Tf
+1 0 0 1 50 716 Tm
+(DTO means Data Transfer Object.) Tj
+/F1 10 Tf
+1 0 0 1 50 696 Tm
+(DTOs are used to move data between the client and the API.) Tj
+/F1 10 Tf
+1 0 0 1 50 676 Tm
+(Examples:) Tj
+/F1 10 Tf
+1 0 0 1 64 656 Tm
+(* CreatePatientRequest) Tj
+/F1 10 Tf
+1 0 0 1 64 642 Tm
+(* PatientResponse) Tj
+/F1 10 Tf
+1 0 0 1 50 622 Tm
+(Why use DTOs:) Tj
+/F1 10 Tf
+1 0 0 1 64 602 Tm
+(* Avoid exposing domain entities directly.) Tj
+/F1 10 Tf
+1 0 0 1 64 588 Tm
+(* Control API input and output.) Tj
+/F1 10 Tf
+1 0 0 1 64 574 Tm
+(* Add validation attributes.) Tj
+/F1 10 Tf
+1 0 0 1 64 560 Tm
+(* Keep API contracts stable.) Tj
+/F2 14 Tf
+1 0 0 1 50 540 Tm
+(7. Why not expose entities directly?) Tj
+/F1 10 Tf
+1 0 0 1 50 515 Tm
+(Exposing entities directly can cause problems:) Tj
+/F1 10 Tf
+1 0 0 1 64 495 Tm
+(* Clients may see internal fields.) Tj
+/F1 10 Tf
+1 0 0 1 64 481 Tm
+(* Database structure becomes tied to API response shape.) Tj
+/F1 10 Tf
+1 0 0 1 64 467 Tm
+(* It is harder to change the domain model later.) Tj
+/F1 10 Tf
+1 0 0 1 64 453 Tm
+(* Navigation properties can create large or circular responses.) Tj
+/F1 10 Tf
+1 0 0 1 50 433 Tm
+(DTOs protect the API boundary.) Tj
+/F2 14 Tf
+1 0 0 1 50 413 Tm
+(8. What is a controller?) Tj
+/F1 10 Tf
+1 0 0 1 50 388 Tm
+(A controller handles HTTP requests.) Tj
+/F1 10 Tf
+1 0 0 1 50 368 Tm
+(It should:) Tj
+/F1 10 Tf
+1 0 0 1 64 348 Tm
+(* Receive request data.) Tj
+/F1 10 Tf
+1 0 0 1 64 334 Tm
+(* Call a service.) Tj
+/F1 10 Tf
+1 0 0 1 64 320 Tm
+(* Return HTTP response.) Tj
+/F1 10 Tf
+1 0 0 1 50 300 Tm
+(It should not:) Tj
+/F1 10 Tf
+1 0 0 1 64 280 Tm
+(* Query DbContext directly.) Tj
+/F1 10 Tf
+1 0 0 1 64 266 Tm
+(* Contain business rules.) Tj
+/F1 10 Tf
+1 0 0 1 64 252 Tm
+(* Contain repeated try/catch error handling.) Tj
+/F2 14 Tf
+1 0 0 1 50 232 Tm
+(9. Why keep controllers thin?) Tj
+/F1 10 Tf
+1 0 0 1 50 207 Tm
+(Thin controllers are easier to read and test.) Tj
+/F1 10 Tf
+1 0 0 1 50 187 Tm
+(They keep HTTP logic separate from business logic.) Tj
+/F1 10 Tf
+1 0 0 1 50 167 Tm
+(In this project, controllers call service interfaces.) Tj
+/F2 14 Tf
+1 0 0 1 50 147 Tm
+(10. What is a service layer?) Tj
+/F1 10 Tf
+1 0 0 1 50 122 Tm
+(The service layer contains application workflows.) Tj
+/F1 10 Tf
+1 0 0 1 50 102 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 82 Tm
+(PatientService.CreateAsync validates the request, creates a Patient entity, adds it) Tj
+ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 2646 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(through the repository, saves through Unit of Work, and returns a response DTO.) Tj
+/F2 14 Tf
+1 0 0 1 50 775 Tm
+(11. What is a repository?) Tj
+/F1 10 Tf
+1 0 0 1 50 750 Tm
+(A repository hides data access details behind an interface.) Tj
+/F1 10 Tf
+1 0 0 1 50 730 Tm
+(Application depends on:) Tj
+/F1 10 Tf
+1 0 0 1 50 710 Tm
+(IPatientRepository) Tj
+/F1 10 Tf
+1 0 0 1 50 690 Tm
+(Infrastructure implements:) Tj
+/F1 10 Tf
+1 0 0 1 50 670 Tm
+(PatientRepository) Tj
+/F1 10 Tf
+1 0 0 1 50 650 Tm
+(Why this matters:) Tj
+/F1 10 Tf
+1 0 0 1 50 630 Tm
+(The Application layer does not need to know EF Core details.) Tj
+/F2 14 Tf
+1 0 0 1 50 610 Tm
+(12. What is Unit of Work?) Tj
+/F1 10 Tf
+1 0 0 1 50 585 Tm
+(Unit of Work represents one commit/save operation.) Tj
+/F1 10 Tf
+1 0 0 1 50 565 Tm
+(Repositories stage changes.) Tj
+/F1 10 Tf
+1 0 0 1 50 545 Tm
+(UnitOfWork saves changes.) Tj
+/F1 10 Tf
+1 0 0 1 50 525 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 505 Tm
+(await _patientRepository.AddAsync\(patient\);) Tj
+/F1 10 Tf
+1 0 0 1 50 491 Tm
+(await _unitOfWork.SaveChangesAsync\(\);) Tj
+/F1 10 Tf
+1 0 0 1 50 471 Tm
+(Why it is useful:) Tj
+/F1 10 Tf
+1 0 0 1 50 451 Tm
+(If one service uses multiple repositories, it can save once after the full workflow) Tj
+/F1 10 Tf
+1 0 0 1 50 437 Tm
+(succeeds.) Tj
+/F2 14 Tf
+1 0 0 1 50 417 Tm
+(13. What is EF Core?) Tj
+/F1 10 Tf
+1 0 0 1 50 392 Tm
+(Entity Framework Core is an Object Relational Mapper.) Tj
+/F1 10 Tf
+1 0 0 1 50 372 Tm
+(It lets C# code work with database records through C# classes.) Tj
+/F1 10 Tf
+1 0 0 1 50 352 Tm
+(Instead of writing SQL manually for every operation, EF Core tracks entities and) Tj
+/F1 10 Tf
+1 0 0 1 50 338 Tm
+(translates LINQ queries into SQL.) Tj
+/F2 14 Tf
+1 0 0 1 50 318 Tm
+(14. What is DbContext?) Tj
+/F1 10 Tf
+1 0 0 1 50 293 Tm
+(DbContext represents a session with the database.) Tj
+/F1 10 Tf
+1 0 0 1 50 273 Tm
+(It tracks entities and saves changes.) Tj
+/F1 10 Tf
+1 0 0 1 50 253 Tm
+(In this project:) Tj
+/F1 10 Tf
+1 0 0 1 50 233 Tm
+(PatientCareDbContext has DbSet properties for Patients, Treatments, and Appointments.) Tj
+/F2 14 Tf
+1 0 0 1 50 213 Tm
+(15. What is DbSet?) Tj
+/F1 10 Tf
+1 0 0 1 50 188 Tm
+(DbSet represents a database table.) Tj
+/F1 10 Tf
+1 0 0 1 50 168 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 148 Tm
+(DbSet<Patient> Patients) Tj
+/F1 10 Tf
+1 0 0 1 50 128 Tm
+(This maps to the Patients table.) Tj
+/F2 14 Tf
+1 0 0 1 50 108 Tm
+(16. What is AsNoTracking?) Tj
+/F1 10 Tf
+1 0 0 1 50 83 Tm
+(AsNoTracking tells EF Core not to track returned entities.) Tj
+ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 2870 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(Use it for read-only queries.) Tj
+/F1 10 Tf
+1 0 0 1 50 775 Tm
+(Benefits:) Tj
+/F1 10 Tf
+1 0 0 1 64 755 Tm
+(* Faster reads.) Tj
+/F1 10 Tf
+1 0 0 1 64 741 Tm
+(* Less memory usage.) Tj
+/F1 10 Tf
+1 0 0 1 50 721 Tm
+(Do not use it when you need to update the entity and save changes.) Tj
+/F2 14 Tf
+1 0 0 1 50 701 Tm
+(17. What is a tracked entity?) Tj
+/F1 10 Tf
+1 0 0 1 50 676 Tm
+(A tracked entity is monitored by EF Core.) Tj
+/F1 10 Tf
+1 0 0 1 50 656 Tm
+(If you change its properties and call SaveChangesAsync, EF Core knows what changed and) Tj
+/F1 10 Tf
+1 0 0 1 50 642 Tm
+(updates the database.) Tj
+/F1 10 Tf
+1 0 0 1 50 622 Tm
+(In this project, AppointmentRepository.GetByIdAsync returns a tracked appointment so the) Tj
+/F1 10 Tf
+1 0 0 1 50 608 Tm
+(service can call Complete or Cancel.) Tj
+/F2 14 Tf
+1 0 0 1 50 588 Tm
+(18. What is dependency injection?) Tj
+/F1 10 Tf
+1 0 0 1 50 563 Tm
+(Dependency injection means classes receive dependencies from the framework instead of) Tj
+/F1 10 Tf
+1 0 0 1 50 549 Tm
+(creating them directly.) Tj
+/F1 10 Tf
+1 0 0 1 50 529 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 509 Tm
+(PatientsController receives IPatientService.) Tj
+/F1 10 Tf
+1 0 0 1 50 489 Tm
+(ASP.NET Core creates PatientService and injects it automatically.) Tj
+/F1 10 Tf
+1 0 0 1 50 469 Tm
+(Benefits:) Tj
+/F1 10 Tf
+1 0 0 1 64 449 Tm
+(* Loose coupling.) Tj
+/F1 10 Tf
+1 0 0 1 64 435 Tm
+(* Easier testing.) Tj
+/F1 10 Tf
+1 0 0 1 64 421 Tm
+(* Easier replacement of implementations.) Tj
+/F2 14 Tf
+1 0 0 1 50 401 Tm
+(19. What is Program.cs?) Tj
+/F1 10 Tf
+1 0 0 1 50 376 Tm
+(Program.cs is the startup file.) Tj
+/F1 10 Tf
+1 0 0 1 50 356 Tm
+(It registers services, builds the app, configures middleware, maps controllers, and runs) Tj
+/F1 10 Tf
+1 0 0 1 50 342 Tm
+(the API.) Tj
+/F1 10 Tf
+1 0 0 1 50 322 Tm
+(It is also the composition root because it connects interfaces to implementations.) Tj
+/F2 14 Tf
+1 0 0 1 50 302 Tm
+(20. What is middleware?) Tj
+/F1 10 Tf
+1 0 0 1 50 277 Tm
+(Middleware is code that runs in the HTTP request pipeline.) Tj
+/F1 10 Tf
+1 0 0 1 50 257 Tm
+(Examples:) Tj
+/F1 10 Tf
+1 0 0 1 64 237 Tm
+(* HTTPS redirection) Tj
+/F1 10 Tf
+1 0 0 1 64 223 Tm
+(* Authorization) Tj
+/F1 10 Tf
+1 0 0 1 64 209 Tm
+(* Swagger) Tj
+/F1 10 Tf
+1 0 0 1 64 195 Tm
+(* Error handling) Tj
+/F1 10 Tf
+1 0 0 1 50 175 Tm
+(Middleware can inspect, modify, stop, or pass along requests and responses.) Tj
+/F2 14 Tf
+1 0 0 1 50 155 Tm
+(21. What is global error handling?) Tj
+/F1 10 Tf
+1 0 0 1 50 130 Tm
+(Global error handling catches exceptions in one place and converts them into consistent) Tj
+/F1 10 Tf
+1 0 0 1 50 116 Tm
+(HTTP responses.) Tj
+/F1 10 Tf
+1 0 0 1 50 96 Tm
+(In this project:) Tj
+/F1 10 Tf
+1 0 0 1 64 76 Tm
+(* NotFoundException becomes 404.) Tj
+ET
+
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 2730 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 64 795 Tm
+(* ValidationException becomes 400.) Tj
+/F1 10 Tf
+1 0 0 1 64 781 Tm
+(* ArgumentException becomes 400.) Tj
+/F1 10 Tf
+1 0 0 1 64 767 Tm
+(* Unexpected exceptions become 500.) Tj
+/F2 14 Tf
+1 0 0 1 50 747 Tm
+(22. Why use custom NotFoundException?) Tj
+/F1 10 Tf
+1 0 0 1 50 722 Tm
+(It makes missing data explicit.) Tj
+/F1 10 Tf
+1 0 0 1 50 702 Tm
+(Instead of returning null everywhere, the service can say:) Tj
+/F1 10 Tf
+1 0 0 1 50 682 Tm
+(Patient with this id was not found.) Tj
+/F1 10 Tf
+1 0 0 1 50 662 Tm
+(The API middleware converts that exception into a 404 response.) Tj
+/F2 14 Tf
+1 0 0 1 50 642 Tm
+(23. What is validation?) Tj
+/F1 10 Tf
+1 0 0 1 50 617 Tm
+(Validation checks whether incoming data is acceptable.) Tj
+/F1 10 Tf
+1 0 0 1 50 597 Tm
+(Examples:) Tj
+/F1 10 Tf
+1 0 0 1 64 577 Tm
+(* First name is required.) Tj
+/F1 10 Tf
+1 0 0 1 64 563 Tm
+(* Date of birth must be in the past.) Tj
+/F1 10 Tf
+1 0 0 1 64 549 Tm
+(* Email must be valid.) Tj
+/F1 10 Tf
+1 0 0 1 64 535 Tm
+(* Treatment name is required.) Tj
+/F1 10 Tf
+1 0 0 1 64 521 Tm
+(* Appointment reason is required.) Tj
+/F1 10 Tf
+1 0 0 1 50 501 Tm
+(Validation protects the system from bad input.) Tj
+/F2 14 Tf
+1 0 0 1 50 481 Tm
+(24. What is Swagger?) Tj
+/F1 10 Tf
+1 0 0 1 50 456 Tm
+(Swagger is an interactive API documentation tool.) Tj
+/F1 10 Tf
+1 0 0 1 50 436 Tm
+(It lets developers:) Tj
+/F1 10 Tf
+1 0 0 1 64 416 Tm
+(* View endpoints.) Tj
+/F1 10 Tf
+1 0 0 1 64 402 Tm
+(* Try requests.) Tj
+/F1 10 Tf
+1 0 0 1 64 388 Tm
+(* See DTO schemas.) Tj
+/F1 10 Tf
+1 0 0 1 64 374 Tm
+(* Test API behavior.) Tj
+/F2 14 Tf
+1 0 0 1 50 354 Tm
+(25. What is appsettings.json?) Tj
+/F1 10 Tf
+1 0 0 1 50 329 Tm
+(appsettings.json stores application configuration.) Tj
+/F1 10 Tf
+1 0 0 1 50 309 Tm
+(Examples:) Tj
+/F1 10 Tf
+1 0 0 1 64 289 Tm
+(* Logging settings) Tj
+/F1 10 Tf
+1 0 0 1 64 275 Tm
+(* Connection strings) Tj
+/F1 10 Tf
+1 0 0 1 50 255 Tm
+(The database path should be configured there instead of hardcoded inside DbContext.) Tj
+/F2 14 Tf
+1 0 0 1 50 235 Tm
+(26. What is a connection string?) Tj
+/F1 10 Tf
+1 0 0 1 50 210 Tm
+(A connection string tells the application how to connect to a database.) Tj
+/F1 10 Tf
+1 0 0 1 50 190 Tm
+(For SQLite:) Tj
+/F1 10 Tf
+1 0 0 1 50 170 Tm
+(Data Source=patientcare.db) Tj
+/F1 10 Tf
+1 0 0 1 50 150 Tm
+(This means the SQLite database file is patientcare.db.) Tj
+/F2 14 Tf
+1 0 0 1 50 130 Tm
+(27. What are migrations?) Tj
+/F1 10 Tf
+1 0 0 1 50 105 Tm
+(EF Core migrations are versioned database schema changes.) Tj
+/F1 10 Tf
+1 0 0 1 50 85 Tm
+(They let you create and update the database structure from your C# model.) Tj
+ET
+
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 2471 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(Common commands:) Tj
+/F1 10 Tf
+1 0 0 1 50 775 Tm
+(dotnet ef migrations add InitialCreate) Tj
+/F1 10 Tf
+1 0 0 1 50 755 Tm
+(dotnet ef database update) Tj
+/F2 14 Tf
+1 0 0 1 50 735 Tm
+(28. What is authentication?) Tj
+/F1 10 Tf
+1 0 0 1 50 710 Tm
+(Authentication answers:) Tj
+/F1 10 Tf
+1 0 0 1 50 690 Tm
+(Who are you?) Tj
+/F1 10 Tf
+1 0 0 1 50 670 Tm
+(It verifies the identity of a user or system.) Tj
+/F1 10 Tf
+1 0 0 1 50 650 Tm
+(Examples:) Tj
+/F1 10 Tf
+1 0 0 1 64 630 Tm
+(* Username and password) Tj
+/F1 10 Tf
+1 0 0 1 64 616 Tm
+(* JWT token) Tj
+/F1 10 Tf
+1 0 0 1 64 602 Tm
+(* Cookie login) Tj
+/F1 10 Tf
+1 0 0 1 64 588 Tm
+(* OAuth login) Tj
+/F1 10 Tf
+1 0 0 1 64 574 Tm
+(* API key) Tj
+/F1 10 Tf
+1 0 0 1 50 554 Tm
+(In a healthcare API, authentication is important because patient data is sensitive.) Tj
+/F2 14 Tf
+1 0 0 1 50 534 Tm
+(29. What is authorization?) Tj
+/F1 10 Tf
+1 0 0 1 50 509 Tm
+(Authorization answers:) Tj
+/F1 10 Tf
+1 0 0 1 50 489 Tm
+(What are you allowed to do?) Tj
+/F1 10 Tf
+1 0 0 1 50 469 Tm
+(It happens after authentication.) Tj
+/F1 10 Tf
+1 0 0 1 50 449 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 429 Tm
+(A doctor can view patient details.) Tj
+/F1 10 Tf
+1 0 0 1 50 409 Tm
+(A receptionist can create appointments.) Tj
+/F1 10 Tf
+1 0 0 1 50 389 Tm
+(A normal user cannot delete patient records.) Tj
+/F2 14 Tf
+1 0 0 1 50 369 Tm
+(30. Authentication vs Authorization) Tj
+/F1 10 Tf
+1 0 0 1 50 344 Tm
+(Authentication:) Tj
+/F1 10 Tf
+1 0 0 1 64 324 Tm
+(* Confirms identity.) Tj
+/F1 10 Tf
+1 0 0 1 64 310 Tm
+(* Example: User logs in and receives a token.) Tj
+/F1 10 Tf
+1 0 0 1 50 290 Tm
+(Authorization:) Tj
+/F1 10 Tf
+1 0 0 1 64 270 Tm
+(* Checks permissions.) Tj
+/F1 10 Tf
+1 0 0 1 64 256 Tm
+(* Example: User has Admin role and can delete records.) Tj
+/F1 10 Tf
+1 0 0 1 50 236 Tm
+(Simple explanation:) Tj
+/F1 10 Tf
+1 0 0 1 50 216 Tm
+(Authentication is who you are. Authorization is what you can access.) Tj
+/F2 14 Tf
+1 0 0 1 50 196 Tm
+(31. What is JWT?) Tj
+/F1 10 Tf
+1 0 0 1 50 171 Tm
+(JWT means JSON Web Token.) Tj
+/F1 10 Tf
+1 0 0 1 50 151 Tm
+(A JWT is a signed token that contains claims about a user.) Tj
+/F1 10 Tf
+1 0 0 1 50 131 Tm
+(Common claims:) Tj
+/F1 10 Tf
+1 0 0 1 64 111 Tm
+(* User id) Tj
+/F1 10 Tf
+1 0 0 1 64 97 Tm
+(* Email) Tj
+/F1 10 Tf
+1 0 0 1 64 83 Tm
+(* Role) Tj
+/F1 10 Tf
+1 0 0 1 64 69 Tm
+(* Expiration time) Tj
+ET
+
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 2719 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(The client sends the token in the Authorization header:) Tj
+/F1 10 Tf
+1 0 0 1 50 775 Tm
+(Authorization: Bearer <token>) Tj
+/F2 14 Tf
+1 0 0 1 50 755 Tm
+(32. Why use JWT in APIs?) Tj
+/F1 10 Tf
+1 0 0 1 50 730 Tm
+(JWT is common for APIs because:) Tj
+/F1 10 Tf
+1 0 0 1 64 710 Tm
+(* It works well with stateless APIs.) Tj
+/F1 10 Tf
+1 0 0 1 64 696 Tm
+(* The server does not need to store session state.) Tj
+/F1 10 Tf
+1 0 0 1 64 682 Tm
+(* It can include user claims.) Tj
+/F1 10 Tf
+1 0 0 1 64 668 Tm
+(* It works with mobile apps, SPAs, and backend clients.) Tj
+/F2 14 Tf
+1 0 0 1 50 648 Tm
+(33. How would authentication be added to this project?) Tj
+/F1 10 Tf
+1 0 0 1 50 623 Tm
+(Possible steps:) Tj
+/F1 10 Tf
+1 0 0 1 50 603 Tm
+(1. Add an AuthController.) Tj
+/F1 10 Tf
+1 0 0 1 50 589 Tm
+(2. Add User entity or connect to Identity.) Tj
+/F1 10 Tf
+1 0 0 1 50 575 Tm
+(3. Validate username and password.) Tj
+/F1 10 Tf
+1 0 0 1 50 561 Tm
+(4. Generate JWT token.) Tj
+/F1 10 Tf
+1 0 0 1 50 547 Tm
+(5. Configure JWT Bearer authentication in Program.cs.) Tj
+/F1 10 Tf
+1 0 0 1 50 533 Tm
+(6. Add [Authorize] to protected controllers or actions.) Tj
+/F2 14 Tf
+1 0 0 1 50 513 Tm
+(34. How would authorization be added?) Tj
+/F1 10 Tf
+1 0 0 1 50 488 Tm
+(Possible approaches:) Tj
+/F1 10 Tf
+1 0 0 1 64 468 Tm
+(* Role-based authorization) Tj
+/F1 10 Tf
+1 0 0 1 64 454 Tm
+(* Policy-based authorization) Tj
+/F1 10 Tf
+1 0 0 1 64 440 Tm
+(* Claim-based authorization) Tj
+/F1 10 Tf
+1 0 0 1 50 420 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 400 Tm
+([Authorize\(Roles = "Admin"\)]) Tj
+/F1 10 Tf
+1 0 0 1 50 380 Tm
+(This allows only users with the Admin role.) Tj
+/F2 14 Tf
+1 0 0 1 50 360 Tm
+(35. What is role-based authorization?) Tj
+/F1 10 Tf
+1 0 0 1 50 335 Tm
+(Role-based authorization checks the user's role.) Tj
+/F1 10 Tf
+1 0 0 1 50 315 Tm
+(Examples:) Tj
+/F1 10 Tf
+1 0 0 1 64 295 Tm
+(* Admin) Tj
+/F1 10 Tf
+1 0 0 1 64 281 Tm
+(* Doctor) Tj
+/F1 10 Tf
+1 0 0 1 64 267 Tm
+(* Nurse) Tj
+/F1 10 Tf
+1 0 0 1 64 253 Tm
+(* Receptionist) Tj
+/F1 10 Tf
+1 0 0 1 50 233 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 213 Tm
+(Only Admin can delete patients.) Tj
+/F2 14 Tf
+1 0 0 1 50 193 Tm
+(36. What is policy-based authorization?) Tj
+/F1 10 Tf
+1 0 0 1 50 168 Tm
+(Policy-based authorization uses named rules.) Tj
+/F1 10 Tf
+1 0 0 1 50 148 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 128 Tm
+(A policy named CanManageAppointments may require the user to be Doctor or Receptionist.) Tj
+/F1 10 Tf
+1 0 0 1 50 108 Tm
+(Policies are more flexible than simple roles.) Tj
+/F2 14 Tf
+1 0 0 1 50 88 Tm
+(37. Why is security important for PatientCareApi?) Tj
+ET
+
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Length 2593 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(Patient data is sensitive.) Tj
+/F1 10 Tf
+1 0 0 1 50 775 Tm
+(A real healthcare API should protect:) Tj
+/F1 10 Tf
+1 0 0 1 64 755 Tm
+(* Personal information) Tj
+/F1 10 Tf
+1 0 0 1 64 741 Tm
+(* Medical treatments) Tj
+/F1 10 Tf
+1 0 0 1 64 727 Tm
+(* Appointment history) Tj
+/F1 10 Tf
+1 0 0 1 64 713 Tm
+(* Contact details) Tj
+/F1 10 Tf
+1 0 0 1 50 693 Tm
+(Important security ideas:) Tj
+/F1 10 Tf
+1 0 0 1 64 673 Tm
+(* Use HTTPS.) Tj
+/F1 10 Tf
+1 0 0 1 64 659 Tm
+(* Authenticate users.) Tj
+/F1 10 Tf
+1 0 0 1 64 645 Tm
+(* Authorize actions.) Tj
+/F1 10 Tf
+1 0 0 1 64 631 Tm
+(* Validate input.) Tj
+/F1 10 Tf
+1 0 0 1 64 617 Tm
+(* Avoid leaking internal errors.) Tj
+/F1 10 Tf
+1 0 0 1 64 603 Tm
+(* Log carefully.) Tj
+/F1 10 Tf
+1 0 0 1 64 589 Tm
+(* Do not expose secrets in code.) Tj
+/F2 14 Tf
+1 0 0 1 50 569 Tm
+(38. What is HTTPS?) Tj
+/F1 10 Tf
+1 0 0 1 50 544 Tm
+(HTTPS encrypts communication between client and server.) Tj
+/F1 10 Tf
+1 0 0 1 50 524 Tm
+(It protects data in transit.) Tj
+/F1 10 Tf
+1 0 0 1 50 504 Tm
+(ASP.NET Core can redirect HTTP to HTTPS using UseHttpsRedirection.) Tj
+/F2 14 Tf
+1 0 0 1 50 484 Tm
+(39. What are HTTP status codes?) Tj
+/F1 10 Tf
+1 0 0 1 50 459 Tm
+(Status codes tell the client what happened.) Tj
+/F1 10 Tf
+1 0 0 1 50 439 Tm
+(Common codes:) Tj
+/F1 10 Tf
+1 0 0 1 64 419 Tm
+(* 200 OK) Tj
+/F1 10 Tf
+1 0 0 1 64 405 Tm
+(* 201 Created) Tj
+/F1 10 Tf
+1 0 0 1 64 391 Tm
+(* 204 No Content) Tj
+/F1 10 Tf
+1 0 0 1 64 377 Tm
+(* 400 Bad Request) Tj
+/F1 10 Tf
+1 0 0 1 64 363 Tm
+(* 401 Unauthorized) Tj
+/F1 10 Tf
+1 0 0 1 64 349 Tm
+(* 403 Forbidden) Tj
+/F1 10 Tf
+1 0 0 1 64 335 Tm
+(* 404 Not Found) Tj
+/F1 10 Tf
+1 0 0 1 64 321 Tm
+(* 500 Internal Server Error) Tj
+/F2 14 Tf
+1 0 0 1 50 301 Tm
+(40. Difference between 401 and 403) Tj
+/F1 10 Tf
+1 0 0 1 50 276 Tm
+(401 Unauthorized:) Tj
+/F1 10 Tf
+1 0 0 1 50 256 Tm
+(The user is not authenticated.) Tj
+/F1 10 Tf
+1 0 0 1 50 236 Tm
+(403 Forbidden:) Tj
+/F1 10 Tf
+1 0 0 1 50 216 Tm
+(The user is authenticated but not allowed to access the resource.) Tj
+/F2 14 Tf
+1 0 0 1 50 196 Tm
+(41. Why use async and await?) Tj
+/F1 10 Tf
+1 0 0 1 50 171 Tm
+(Database and network operations can take time.) Tj
+/F1 10 Tf
+1 0 0 1 50 151 Tm
+(Async/await allows the server to handle other requests while waiting.) Tj
+/F1 10 Tf
+1 0 0 1 50 131 Tm
+(This improves scalability.) Tj
+/F2 14 Tf
+1 0 0 1 50 111 Tm
+(42. What is CancellationToken?) Tj
+/F1 10 Tf
+1 0 0 1 50 86 Tm
+(CancellationToken lets a request be cancelled.) Tj
+ET
+
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 19 0 R >>
+endobj
+21 0 obj
+<< /Length 2702 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 775 Tm
+(If the client disconnects, the API can stop the database operation.) Tj
+/F1 10 Tf
+1 0 0 1 50 755 Tm
+(This saves resources.) Tj
+/F2 14 Tf
+1 0 0 1 50 735 Tm
+(43. What is LINQ?) Tj
+/F1 10 Tf
+1 0 0 1 50 710 Tm
+(LINQ is Language Integrated Query.) Tj
+/F1 10 Tf
+1 0 0 1 50 690 Tm
+(It lets C# query collections and databases.) Tj
+/F1 10 Tf
+1 0 0 1 50 670 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 650 Tm
+(Where, OrderBy, Select, ToListAsync.) Tj
+/F1 10 Tf
+1 0 0 1 50 630 Tm
+(EF Core translates many LINQ queries into SQL.) Tj
+/F2 14 Tf
+1 0 0 1 50 610 Tm
+(44. What is cascade delete?) Tj
+/F1 10 Tf
+1 0 0 1 50 585 Tm
+(Cascade delete means related child records are deleted automatically when the parent is) Tj
+/F1 10 Tf
+1 0 0 1 50 571 Tm
+(deleted.) Tj
+/F1 10 Tf
+1 0 0 1 50 551 Tm
+(In this project, deleting a Patient can delete related Treatments and Appointments.) Tj
+/F1 10 Tf
+1 0 0 1 50 531 Tm
+(This should be used carefully in real healthcare systems.) Tj
+/F2 14 Tf
+1 0 0 1 50 511 Tm
+(45. What is model binding?) Tj
+/F1 10 Tf
+1 0 0 1 50 486 Tm
+(Model binding is how ASP.NET Core converts HTTP request data into C# objects.) Tj
+/F1 10 Tf
+1 0 0 1 50 466 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 446 Tm
+(JSON body becomes CreatePatientRequest.) Tj
+/F1 10 Tf
+1 0 0 1 50 426 Tm
+(Route value {id} becomes int id.) Tj
+/F2 14 Tf
+1 0 0 1 50 406 Tm
+(46. What is [ApiController]?) Tj
+/F1 10 Tf
+1 0 0 1 50 381 Tm
+([ApiController] enables helpful API behavior:) Tj
+/F1 10 Tf
+1 0 0 1 64 361 Tm
+(* Automatic model validation response for invalid model state.) Tj
+/F1 10 Tf
+1 0 0 1 64 347 Tm
+(* Better binding behavior.) Tj
+/F1 10 Tf
+1 0 0 1 64 333 Tm
+(* Clearer API conventions.) Tj
+/F2 14 Tf
+1 0 0 1 50 313 Tm
+(47. What is CreatedAtAction?) Tj
+/F1 10 Tf
+1 0 0 1 50 288 Tm
+(CreatedAtAction returns 201 Created and includes information about where the new) Tj
+/F1 10 Tf
+1 0 0 1 50 274 Tm
+(resource can be retrieved.) Tj
+/F1 10 Tf
+1 0 0 1 50 254 Tm
+(It is useful after POST create operations.) Tj
+/F2 14 Tf
+1 0 0 1 50 234 Tm
+(48. What is NoContent?) Tj
+/F1 10 Tf
+1 0 0 1 50 209 Tm
+(NoContent returns HTTP 204.) Tj
+/F1 10 Tf
+1 0 0 1 50 189 Tm
+(It means the operation succeeded but there is no response body.) Tj
+/F1 10 Tf
+1 0 0 1 50 169 Tm
+(It is common for DELETE operations.) Tj
+/F2 14 Tf
+1 0 0 1 50 149 Tm
+(49. What is a pull request?) Tj
+/F1 10 Tf
+1 0 0 1 50 124 Tm
+(A pull request is a request to merge changes from one branch into another.) Tj
+/F1 10 Tf
+1 0 0 1 50 104 Tm
+(It allows review, discussion, CI checks, and controlled merging.) Tj
+ET
+
+endstream
+endobj
+22 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 21 0 R >>
+endobj
+23 0 obj
+<< /Length 2681 >>
+stream
+BT
+/F2 14 Tf
+1 0 0 1 50 795 Tm
+(50. What is CI/CD?) Tj
+/F1 10 Tf
+1 0 0 1 50 770 Tm
+(CI means Continuous Integration.) Tj
+/F1 10 Tf
+1 0 0 1 50 750 Tm
+(It automatically builds and tests code when changes are pushed.) Tj
+/F1 10 Tf
+1 0 0 1 50 730 Tm
+(CD means Continuous Delivery or Continuous Deployment.) Tj
+/F1 10 Tf
+1 0 0 1 50 710 Tm
+(It prepares or deploys the application after successful checks.) Tj
+/F2 14 Tf
+1 0 0 1 50 690 Tm
+(51. What is GitHub Actions?) Tj
+/F1 10 Tf
+1 0 0 1 50 665 Tm
+(GitHub Actions is GitHub's automation platform.) Tj
+/F1 10 Tf
+1 0 0 1 50 645 Tm
+(It can run:) Tj
+/F1 10 Tf
+1 0 0 1 64 625 Tm
+(* dotnet restore) Tj
+/F1 10 Tf
+1 0 0 1 64 611 Tm
+(* dotnet build) Tj
+/F1 10 Tf
+1 0 0 1 64 597 Tm
+(* dotnet test) Tj
+/F1 10 Tf
+1 0 0 1 64 583 Tm
+(* Docker build) Tj
+/F1 10 Tf
+1 0 0 1 64 569 Tm
+(* Deployment steps) Tj
+/F2 14 Tf
+1 0 0 1 50 549 Tm
+(52. What is Docker?) Tj
+/F1 10 Tf
+1 0 0 1 50 524 Tm
+(Docker packages an application and its runtime dependencies into an image.) Tj
+/F1 10 Tf
+1 0 0 1 50 504 Tm
+(This makes the application run consistently across machines.) Tj
+/F1 10 Tf
+1 0 0 1 50 484 Tm
+(For this API, a Dockerfile can build and run the ASP.NET Core app in a container.) Tj
+/F2 14 Tf
+1 0 0 1 50 464 Tm
+(53. What is a Docker image?) Tj
+/F1 10 Tf
+1 0 0 1 50 439 Tm
+(A Docker image is a packaged version of the application.) Tj
+/F1 10 Tf
+1 0 0 1 50 419 Tm
+(It includes the app files and runtime environment.) Tj
+/F1 10 Tf
+1 0 0 1 50 399 Tm
+(Images can be pushed to registries like GitHub Container Registry.) Tj
+/F2 14 Tf
+1 0 0 1 50 379 Tm
+(54. What is a Docker container?) Tj
+/F1 10 Tf
+1 0 0 1 50 354 Tm
+(A container is a running instance of an image.) Tj
+/F1 10 Tf
+1 0 0 1 50 334 Tm
+(Image is like a blueprint.) Tj
+/F1 10 Tf
+1 0 0 1 50 314 Tm
+(Container is the running process.) Tj
+/F2 14 Tf
+1 0 0 1 50 294 Tm
+(55. What questions might a manager ask?) Tj
+/F1 10 Tf
+1 0 0 1 50 269 Tm
+(Question:) Tj
+/F1 10 Tf
+1 0 0 1 50 249 Tm
+(Why did you use clean architecture?) Tj
+/F1 10 Tf
+1 0 0 1 50 229 Tm
+(Answer:) Tj
+/F1 10 Tf
+1 0 0 1 50 209 Tm
+(To separate business logic from database and API details. It makes the project easier to) Tj
+/F1 10 Tf
+1 0 0 1 50 195 Tm
+(test, maintain, and explain.) Tj
+/F1 10 Tf
+1 0 0 1 50 175 Tm
+(Question:) Tj
+/F1 10 Tf
+1 0 0 1 50 155 Tm
+(Why did you use DTOs?) Tj
+/F1 10 Tf
+1 0 0 1 50 135 Tm
+(Answer:) Tj
+/F1 10 Tf
+1 0 0 1 50 115 Tm
+(To control API input and output and avoid exposing internal domain or database models) Tj
+/F1 10 Tf
+1 0 0 1 50 101 Tm
+(directly.) Tj
+/F1 10 Tf
+1 0 0 1 50 81 Tm
+(Question:) Tj
+ET
+
+endstream
+endobj
+24 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 23 0 R >>
+endobj
+25 0 obj
+<< /Length 2121 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(Why did you use services?) Tj
+/F1 10 Tf
+1 0 0 1 50 775 Tm
+(Answer:) Tj
+/F1 10 Tf
+1 0 0 1 50 755 Tm
+(Services hold application workflows so controllers stay thin.) Tj
+/F1 10 Tf
+1 0 0 1 50 735 Tm
+(Question:) Tj
+/F1 10 Tf
+1 0 0 1 50 715 Tm
+(Why did you use repositories?) Tj
+/F1 10 Tf
+1 0 0 1 50 695 Tm
+(Answer:) Tj
+/F1 10 Tf
+1 0 0 1 50 675 Tm
+(Repositories hide EF Core details from the Application layer.) Tj
+/F1 10 Tf
+1 0 0 1 50 655 Tm
+(Question:) Tj
+/F1 10 Tf
+1 0 0 1 50 635 Tm
+(Why did you use Unit of Work?) Tj
+/F1 10 Tf
+1 0 0 1 50 615 Tm
+(Answer:) Tj
+/F1 10 Tf
+1 0 0 1 50 595 Tm
+(To save all pending changes once after a workflow completes.) Tj
+/F1 10 Tf
+1 0 0 1 50 575 Tm
+(Question:) Tj
+/F1 10 Tf
+1 0 0 1 50 555 Tm
+(How do you handle errors?) Tj
+/F1 10 Tf
+1 0 0 1 50 535 Tm
+(Answer:) Tj
+/F1 10 Tf
+1 0 0 1 50 515 Tm
+(Services throw meaningful exceptions, and global middleware converts them to consistent) Tj
+/F1 10 Tf
+1 0 0 1 50 501 Tm
+(HTTP responses.) Tj
+/F1 10 Tf
+1 0 0 1 50 481 Tm
+(Question:) Tj
+/F1 10 Tf
+1 0 0 1 50 461 Tm
+(How would you secure this API?) Tj
+/F1 10 Tf
+1 0 0 1 50 441 Tm
+(Answer:) Tj
+/F1 10 Tf
+1 0 0 1 50 421 Tm
+(I would add authentication using JWT or ASP.NET Core Identity, then use authorization) Tj
+/F1 10 Tf
+1 0 0 1 50 407 Tm
+(roles or policies to restrict endpoints.) Tj
+/F2 14 Tf
+1 0 0 1 50 387 Tm
+(56. Strong Final Interview Summary) Tj
+/F1 10 Tf
+1 0 0 1 50 362 Tm
+(I built PatientCareApi as a layered ASP.NET Core Web API. I used Domain entities for) Tj
+/F1 10 Tf
+1 0 0 1 50 348 Tm
+(business rules, Application services for workflows, repository interfaces for) Tj
+/F1 10 Tf
+1 0 0 1 50 334 Tm
+(persistence abstractions, Infrastructure with EF Core and SQLite for database access,) Tj
+/F1 10 Tf
+1 0 0 1 50 320 Tm
+(and thin API controllers for HTTP endpoints. I also added Swagger, global error) Tj
+/F1 10 Tf
+1 0 0 1 50 306 Tm
+(handling, and a GitHub feature-branch workflow. The next steps are migrations, tests,) Tj
+/F1 10 Tf
+1 0 0 1 50 292 Tm
+(CI, and Docker.) Tj
+ET
+
+endstream
+endobj
+26 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 25 0 R >>
+endobj
+xref
+0 27
+0000000000 65535 f 
+0000000010 00000 n 
+0000000062 00000 n 
+0000000194 00000 n 
+0000000267 00000 n 
+0000000345 00000 n 
+0000003460 00000 n 
+0000003599 00000 n 
+0000006455 00000 n 
+0000006594 00000 n 
+0000009295 00000 n 
+0000009435 00000 n 
+0000012361 00000 n 
+0000012502 00000 n 
+0000015288 00000 n 
+0000015429 00000 n 
+0000017956 00000 n 
+0000018097 00000 n 
+0000020872 00000 n 
+0000021013 00000 n 
+0000023662 00000 n 
+0000023803 00000 n 
+0000026561 00000 n 
+0000026702 00000 n 
+0000029439 00000 n 
+0000029580 00000 n 
+0000031757 00000 n 
+trailer
+<< /Size 27 /Root 1 0 R >>
+startxref
+31898
+%%EOF

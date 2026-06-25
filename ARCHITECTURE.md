@@ -49,11 +49,13 @@ Current Infrastructure folders:
 
 ### PatientCareApi.Api
 
-Contains controllers, dependency injection, Swagger/OpenAPI, and appsettings. Global error handling middleware will be added in a later feature.
+Contains controllers, dependency injection, Swagger/OpenAPI, appsettings, and global error handling middleware.
 
 Api depends on Application and Infrastructure.
 
 `Program.cs` is the composition root. It registers the DbContext, repositories, Unit of Work, and services. Controllers depend on service interfaces so they stay thin and do not contain business logic.
+
+`ErrorHandlingMiddleware` converts exceptions from the Application layer into consistent HTTP responses. This keeps error response logic out of controllers.
 
 ### PatientCareApi.Tests
 

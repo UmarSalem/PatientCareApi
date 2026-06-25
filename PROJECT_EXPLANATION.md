@@ -56,6 +56,8 @@ Current controllers:
 - `TreatmentsController`
 - `AppointmentsController`
 
+The API layer also contains `ErrorHandlingMiddleware`, which converts exceptions into HTTP error responses.
+
 ## Why DTOs Are Used
 
 DTOs protect the API from exposing database entities directly. They let the API control what data comes in and what data goes out.
@@ -116,6 +118,23 @@ Controllers receive HTTP requests, call Application services, and return HTTP re
 For example, `PatientsController.Create` accepts a `CreatePatientRequest`, calls `IPatientService.CreateAsync`, and returns `201 Created`.
 
 The controller does not validate business rules directly and does not talk to EF Core directly.
+
+## How Error Handling Works
+
+The API uses global exception handling middleware.
+
+It maps:
+
+- `NotFoundException` to `404 Not Found`
+- `ValidationException` to `400 Bad Request`
+- `ArgumentException` to `400 Bad Request`
+- unexpected exceptions to `500 Internal Server Error`
+
+This keeps controllers clean because they do not need repeated `try/catch` blocks.
+
+In an interview, you can explain it like this:
+
+> Application services throw meaningful exceptions. The API middleware catches those exceptions and translates them into proper HTTP status codes and JSON error responses.
 
 ## Interview Explanation
 

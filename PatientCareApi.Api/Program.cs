@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PatientCareApi.Api.Middleware;
 using PatientCareApi.Application.Repositories;
 using PatientCareApi.Application.Services;
 using PatientCareApi.Infrastructure.Data;
@@ -35,6 +36,9 @@ builder.Services.AddScoped<ITreatmentService, TreatmentService>();
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 
 var app = builder.Build();
+
+// Global error handling keeps controllers clean by avoiding repeated try/catch blocks.
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 // Swagger UI is enabled only in development so it is available while learning and testing locally.
 if (app.Environment.IsDevelopment())
