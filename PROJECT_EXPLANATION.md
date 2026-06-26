@@ -90,6 +90,27 @@ EF Core entity mapping is configured in `PatientCareDbContext`. API startup will
 
 `PatientCareDbContext` defines the `Patients`, `Treatments`, and `Appointments` tables, configures required fields, max lengths, relationships, cascade delete, and stores `AppointmentStatus` as a readable string.
 
+## How EF Core Migrations Work
+
+Migrations are versioned database schema changes.
+
+The first migration is `InitialCreate`. It creates:
+
+- `Patients`
+- `Treatments`
+- `Appointments`
+- foreign keys from treatments and appointments to patients
+- indexes for patient lookup
+- `__EFMigrationsHistory`, which EF Core uses to track applied migrations
+
+The migration files are committed to Git. The generated SQLite database file is not committed because it is a local runtime artifact.
+
+To apply migrations:
+
+```powershell
+dotnet ef database update --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api
+```
+
 ## How Repository Implementations Work
 
 Repository interfaces live in Application. Repository implementations live in Infrastructure because they use EF Core.

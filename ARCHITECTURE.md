@@ -47,6 +47,8 @@ Current Infrastructure folders:
 
 `PatientCareDbContext` maps domain entities to database tables. Repository classes use EF Core to query and stage changes. `UnitOfWork` calls `SaveChangesAsync` once a service workflow is ready to commit.
 
+Migrations live in `PatientCareApi.Infrastructure/Data/Migrations` because they are database schema details. The API project is used as the startup project so EF Core can read configuration and dependency injection setup.
+
 ### PatientCareApi.Api
 
 Contains controllers, dependency injection, Swagger/OpenAPI, appsettings, and global error handling middleware.

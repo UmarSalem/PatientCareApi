@@ -403,3 +403,79 @@ Create the pull request:
 base: development
 compare: feature/06-error-handling
 ```
+
+## Feature 07: EF Core Migrations And Database Setup
+
+### What Was Created
+
+- Initial EF Core migration:
+  - `InitialCreate`
+- Migration model snapshot:
+  - `PatientCareDbContextModelSnapshot`
+- SQLite database was created locally by applying the migration.
+
+### Why It Was Created
+
+The DbContext describes the database model in C# code. Migrations turn that model into database schema changes.
+
+This feature creates the first database schema for:
+
+- Patients
+- Treatments
+- Appointments
+
+### Main Logic
+
+`InitialCreate` creates the main tables, primary keys, foreign keys, and indexes.
+
+EF Core also creates `__EFMigrationsHistory` in the database. That table tracks which migrations have already been applied.
+
+The migration files should be committed to Git. The generated `patientcare.db` file should not be committed because each developer can create it locally with `database update`.
+
+### Files Changed
+
+- `PatientCareApi.Infrastructure/Data/Migrations/20260625070821_InitialCreate.cs`
+- `PatientCareApi.Infrastructure/Data/Migrations/20260625070821_InitialCreate.Designer.cs`
+- `PatientCareApi.Infrastructure/Data/Migrations/PatientCareDbContextModelSnapshot.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `API_ENDPOINTS.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+Run:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet build --no-restore
+dotnet ef database update --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api
+```
+
+### How To Explain It In An Interview
+
+> I added the initial EF Core migration to create the SQLite database schema. The migration creates tables for patients, treatments, and appointments, including relationships and indexes. I commit migration files to Git, but not the generated database file, because each environment can create its own database by running `dotnet ef database update`.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 07 efcore migrations"       # Save current uncommitted changes, including new files
+git checkout development                                  # Switch to development branch
+git pull origin development                               # Get latest development code
+git checkout -B feature/07-efcore-migrations              # Create/reset Feature 07 branch
+git stash pop                                             # Bring Feature 07 changes back
+dotnet restore --configfile NuGet.Config                  # Restore packages
+dotnet build --no-restore                                 # Confirm build
+dotnet ef database update --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api  # Create/update local SQLite DB
+git add .                                                 # Stage all files except ignored DB files
+git commit -m "Add initial EF Core migration"             # Commit feature
+git push -u origin feature/07-efcore-migrations           # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/07-efcore-migrations
+```

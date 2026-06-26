@@ -44,6 +44,7 @@ Feature 05 implements these endpoints through controllers. Feature 06 adds globa
 - EF Core DbContext for patients, treatments, and appointments
 - Repository implementations for Application repository interfaces
 - Unit of Work implementation for committing changes
+- Initial EF Core migration for the SQLite schema
 
 ## Controllers Implemented
 
