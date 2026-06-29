@@ -26,6 +26,7 @@ Completed so far:
 - Feature 05: API dependency injection, Swagger UI, connection string, and REST controllers
 - Feature 06: Global error handling middleware
 - Feature 07: Initial EF Core migration and SQLite database creation
+- Feature 08: Domain unit tests
 
 ## How To Run
 
@@ -53,7 +54,7 @@ dotnet ef database update --project PatientCareApi.Infrastructure --startup-proj
 
 ## How To Run Tests
 
-Tests will be added in a later feature.
+Run the test suite:
 
 ```powershell
 dotnet test
@@ -87,19 +88,19 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 07:
+For Feature 08:
 
 ```powershell
-git stash push -u -m "feature 07 efcore migrations"
+git stash push -u -m "feature 08 unit tests"
 git checkout development
 git pull origin development
-git checkout -B feature/07-efcore-migrations
+git checkout -B feature/08-unit-tests
 git stash pop
 dotnet restore --configfile NuGet.Config
-dotnet build --no-restore
+dotnet test --no-restore
 git add .
-git commit -m "Add initial EF Core migration"
-git push -u origin feature/07-efcore-migrations
+git commit -m "Add domain unit tests"
+git push -u origin feature/08-unit-tests
 ```
 
 See `GIT_WORKFLOW.md` for merge vs rebase notes.

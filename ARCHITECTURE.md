@@ -61,7 +61,9 @@ Api depends on Application and Infrastructure.
 
 ### PatientCareApi.Tests
 
-Will contain unit tests for domain behavior and application services.
+Contains unit tests for domain behavior. Application service tests can be added later.
+
+The first tests focus on Domain because Domain has no dependency on EF Core, ASP.NET Core, or the database. That makes the tests fast and stable.
 
 ## Dependency Direction
 

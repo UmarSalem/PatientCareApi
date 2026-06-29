@@ -157,6 +157,22 @@ In an interview, you can explain it like this:
 
 > Application services throw meaningful exceptions. The API middleware catches those exceptions and translates them into proper HTTP status codes and JSON error responses.
 
+## How Unit Tests Work
+
+The first unit tests focus on Domain behavior.
+
+They verify:
+
+- creating a valid patient succeeds
+- creating a patient with an empty first name fails
+- completing an appointment changes the status to `Completed`
+
+These tests are fast because they do not use the API, EF Core, SQLite, or Swagger.
+
+In an interview, you can explain it like this:
+
+> I started testing the Domain layer first because it contains core business rules and has no external dependencies. These tests confirm that the entities protect valid state and important behavior works as expected.
+
 ## Interview Explanation
 
 > I built a healthcare Web API using clean architecture. The Domain layer contains the business entities and rules. The Application layer contains DTOs, service contracts, service logic, repository contracts, and a Unit of Work contract. Infrastructure handles EF Core and SQLite. The Api layer exposes controllers and middleware.

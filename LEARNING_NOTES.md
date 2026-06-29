@@ -479,3 +479,66 @@ Create the pull request:
 base: development
 compare: feature/07-efcore-migrations
 ```
+
+## Feature 08: Domain Unit Tests
+
+### What Was Created
+
+- `PatientTests`
+- `AppointmentTests`
+
+### Why It Was Created
+
+Unit tests verify important behavior without manually testing through Swagger or the database.
+
+The first tests focus on Domain rules because Domain is independent from EF Core and ASP.NET Core.
+
+### Tests Added
+
+- Creating a valid patient should succeed.
+- Creating a patient with an empty first name should fail.
+- Completing an appointment should change status to `Completed`.
+
+### Files Changed
+
+- `PatientCareApi.Tests/Domain/PatientTests.cs`
+- `PatientCareApi.Tests/Domain/AppointmentTests.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+Run:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet test --no-restore
+```
+
+### How To Explain It In An Interview
+
+> I added unit tests for core domain behavior. These tests do not need a database or API server. They verify that a valid patient can be created, invalid patient names are rejected, and appointment completion changes the domain status correctly.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 08 unit tests"       # Save current uncommitted changes, including new files
+git checkout development                           # Switch to development branch
+git pull origin development                        # Get latest development code
+git checkout -B feature/08-unit-tests              # Create/reset Feature 08 branch
+git stash pop                                      # Bring Feature 08 changes back
+dotnet restore --configfile NuGet.Config           # Restore packages
+dotnet test --no-restore                           # Run tests
+git add .                                          # Stage all files
+git commit -m "Add domain unit tests"              # Commit feature
+git push -u origin feature/08-unit-tests           # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/08-unit-tests
+```
