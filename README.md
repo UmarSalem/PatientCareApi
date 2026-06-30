@@ -27,6 +27,7 @@ Completed so far:
 - Feature 06: Global error handling middleware
 - Feature 07: Initial EF Core migration and SQLite database creation
 - Feature 08: Domain unit tests
+- Feature 09: GitHub Actions CI pipeline
 
 ## How To Run
 
@@ -60,6 +61,17 @@ Run the test suite:
 dotnet test
 ```
 
+## CI Pipeline
+
+GitHub Actions runs automatically on pushes and pull requests.
+
+The workflow:
+
+- restores NuGet packages
+- builds the solution in Release mode
+- runs the test suite
+- uploads test result files as a workflow artifact
+
 ## Swagger
 
 Swagger/OpenAPI will be available when the API feature is completed:
@@ -88,19 +100,19 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 08:
+For Feature 09:
 
 ```powershell
-git stash push -u -m "feature 08 unit tests"
+git stash push -u -m "feature 09 github actions ci"
 git checkout development
 git pull origin development
-git checkout -B feature/08-unit-tests
+git checkout -B feature/09-github-actions-ci
 git stash pop
 dotnet restore --configfile NuGet.Config
 dotnet test --no-restore
 git add .
-git commit -m "Add domain unit tests"
-git push -u origin feature/08-unit-tests
+git commit -m "Add GitHub Actions CI pipeline"
+git push -u origin feature/09-github-actions-ci
 ```
 
 See `GIT_WORKFLOW.md` for merge vs rebase notes.

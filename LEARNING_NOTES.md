@@ -542,3 +542,83 @@ Create the pull request:
 base: development
 compare: feature/08-unit-tests
 ```
+
+## Feature 09: GitHub Actions CI Pipeline
+
+### What Was Created
+
+- GitHub Actions workflow:
+  - `.github/workflows/dotnet-ci.yml`
+
+### Why It Was Created
+
+CI means Continuous Integration.
+
+It automatically checks the project when code is pushed or when a pull request is opened.
+
+This helps catch build or test failures before code is merged into `development` or `main`.
+
+### Main Logic
+
+The workflow runs on:
+
+- pushes to `main`
+- pushes to `development`
+- pushes to `feature/**`
+- pull requests targeting `main`
+- pull requests targeting `development`
+
+The job runs on Ubuntu and performs:
+
+1. Checkout repository.
+2. Install .NET 9.
+3. Restore NuGet packages.
+4. Build the solution in Release mode.
+5. Run tests.
+6. Upload test results.
+
+### Files Changed
+
+- `.github/workflows/dotnet-ci.yml`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+Run locally:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet build --configuration Release --no-restore
+dotnet test --configuration Release --no-build
+```
+
+After pushing the branch, check the **Actions** tab in GitHub.
+
+### How To Explain It In An Interview
+
+> I added a GitHub Actions CI workflow. It runs automatically when I push code or open a pull request. The workflow restores packages, builds the solution, runs tests, and uploads test results. This shows that every feature is checked before merging.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 09 github actions ci"       # Save current uncommitted changes, including new files
+git checkout development                                  # Switch to development branch
+git pull origin development                               # Get latest development code
+git checkout -B feature/09-github-actions-ci              # Create/reset Feature 09 branch
+git stash pop                                             # Bring Feature 09 changes back
+dotnet restore --configfile NuGet.Config                  # Restore packages
+dotnet test --no-restore                                  # Run local tests before pushing
+git add .                                                 # Stage all files
+git commit -m "Add GitHub Actions CI pipeline"            # Commit feature
+git push -u origin feature/09-github-actions-ci           # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/09-github-actions-ci
+```

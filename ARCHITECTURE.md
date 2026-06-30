@@ -74,3 +74,9 @@ Tests -> projects needed for testing
 ```
 
 The important rule is that Domain has no dependency on EF Core, ASP.NET Core, or any external framework.
+
+## CI/CD
+
+The repository contains a GitHub Actions workflow in `.github/workflows/dotnet-ci.yml`.
+
+The CI pipeline validates the architecture by restoring, building, and testing the solution automatically on GitHub.
