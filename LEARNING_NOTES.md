@@ -622,3 +622,99 @@ Create the pull request:
 base: development
 compare: feature/09-github-actions-ci
 ```
+
+## Feature 10: Dockerfile And Docker Image Workflow
+
+### What Was Created
+
+- `Dockerfile`
+- `.dockerignore`
+- GitHub Actions workflow:
+  - `.github/workflows/docker-image.yml`
+
+### Why It Was Created
+
+Docker makes the API easier to package and run consistently.
+
+Instead of relying on a developer machine having the exact setup, Docker builds an image that contains the published API and the runtime needed to run it.
+
+The GitHub Actions Docker workflow automates image building and publishing.
+
+### Main Logic
+
+The Dockerfile uses a multi-stage build:
+
+1. Build stage:
+   - uses `mcr.microsoft.com/dotnet/sdk:9.0`
+   - restores packages
+   - publishes the API
+2. Runtime stage:
+   - uses `mcr.microsoft.com/dotnet/aspnet:9.0`
+   - copies the published app
+   - runs `PatientCareApi.Api.dll`
+
+The app listens on port `8080` inside the container.
+
+The Docker workflow:
+
+- builds on pull requests
+- pushes the image only when not running on a pull request
+- publishes to GitHub Container Registry
+
+### Files Changed
+
+- `Dockerfile`
+- `.dockerignore`
+- `.github/workflows/docker-image.yml`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+If Docker is installed:
+
+```powershell
+docker build -t patient-care-api .
+docker run --rm -p 8080:8080 patient-care-api
+```
+
+Open:
+
+```text
+http://localhost:8080/swagger
+```
+
+Local verification without Docker:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet test --no-restore
+```
+
+### How To Explain It In An Interview
+
+> I added Docker support using a multi-stage Dockerfile. The first stage uses the .NET SDK to restore and publish the API. The final stage uses the smaller ASP.NET Core runtime image to run only the published output. I also added a GitHub Actions workflow that builds the Docker image and can publish it to GitHub Container Registry.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 10 docker image workflow"   # Save current uncommitted changes, including new files
+git checkout development                                  # Switch to development branch
+git pull origin development                               # Get latest development code
+git checkout -B feature/10-docker-image-workflow          # Create/reset Feature 10 branch
+git stash pop                                             # Bring Feature 10 changes back
+dotnet restore --configfile NuGet.Config                  # Restore packages
+dotnet test --no-restore                                  # Run local tests before pushing
+git add .                                                 # Stage all files
+git commit -m "Add Docker image workflow"                 # Commit feature
+git push -u origin feature/10-docker-image-workflow       # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/10-docker-image-workflow
+```

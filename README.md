@@ -28,6 +28,7 @@ Completed so far:
 - Feature 07: Initial EF Core migration and SQLite database creation
 - Feature 08: Domain unit tests
 - Feature 09: GitHub Actions CI pipeline
+- Feature 10: Dockerfile and Docker image workflow
 
 ## How To Run
 
@@ -72,6 +73,32 @@ The workflow:
 - runs the test suite
 - uploads test result files as a workflow artifact
 
+## Docker
+
+Build the Docker image locally if Docker is installed:
+
+```powershell
+docker build -t patient-care-api .
+```
+
+Run the container:
+
+```powershell
+docker run --rm -p 8080:8080 patient-care-api
+```
+
+Open:
+
+```text
+http://localhost:8080/swagger
+```
+
+The Docker image workflow can publish the image to GitHub Container Registry:
+
+```text
+ghcr.io/umarsalem/patient-care-api
+```
+
 ## Swagger
 
 Swagger/OpenAPI will be available when the API feature is completed:
@@ -100,19 +127,19 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 09:
+For Feature 10:
 
 ```powershell
-git stash push -u -m "feature 09 github actions ci"
+git stash push -u -m "feature 10 docker image workflow"
 git checkout development
 git pull origin development
-git checkout -B feature/09-github-actions-ci
+git checkout -B feature/10-docker-image-workflow
 git stash pop
 dotnet restore --configfile NuGet.Config
 dotnet test --no-restore
 git add .
-git commit -m "Add GitHub Actions CI pipeline"
-git push -u origin feature/09-github-actions-ci
+git commit -m "Add Docker image workflow"
+git push -u origin feature/10-docker-image-workflow
 ```
 
 See `GIT_WORKFLOW.md` for merge vs rebase notes.

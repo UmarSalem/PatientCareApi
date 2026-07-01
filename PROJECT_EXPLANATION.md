@@ -191,6 +191,37 @@ In an interview, you can explain it like this:
 
 > I added a GitHub Actions CI pipeline so every feature branch and pull request is checked automatically. The pipeline restores dependencies, builds the solution, runs tests, and uploads test result artifacts.
 
+## How Docker Works
+
+Docker packages the API and its runtime into an image.
+
+This project uses a multi-stage Dockerfile:
+
+1. The build stage uses the .NET SDK image to restore packages and publish the API.
+2. The runtime stage uses the smaller ASP.NET Core runtime image to run the published API.
+
+This keeps the final image smaller and avoids shipping build tools in production.
+
+The container listens on port `8080`.
+
+In an interview, you can explain it like this:
+
+> I added Docker support so the API can be packaged and run consistently in different environments. The Dockerfile uses a multi-stage build: one stage publishes the app with the SDK, and the final stage runs it with the ASP.NET Core runtime.
+
+## How The Docker Image Workflow Works
+
+The Docker workflow builds the image on GitHub.
+
+On pull requests, it builds the image but does not push it.
+
+On pushes to `main` or manual workflow runs, it logs in to GitHub Container Registry and pushes the image.
+
+The image name is:
+
+```text
+ghcr.io/umarsalem/patient-care-api
+```
+
 ## Interview Explanation
 
 > I built a healthcare Web API using clean architecture. The Domain layer contains the business entities and rules. The Application layer contains DTOs, service contracts, service logic, repository contracts, and a Unit of Work contract. Infrastructure handles EF Core and SQLite. The Api layer exposes controllers and middleware.
