@@ -69,3 +69,11 @@ Example error response:
   "message": "Patient with id 10 was not found."
 }
 ```
+
+## Integration Test Coverage
+
+Feature 11 adds API integration tests for important endpoint behavior:
+
+- `POST /api/patients` returns `201 Created`
+- `GET /api/patients/{id}` returns `404 Not Found` when the patient does not exist
+- `PATCH /api/appointments/{id}/complete` changes an appointment status to `Completed`

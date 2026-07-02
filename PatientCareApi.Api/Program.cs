@@ -58,3 +58,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// WebApplicationFactory uses this partial class to start the API in memory for integration tests.
+public partial class Program
+{
+}

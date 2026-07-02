@@ -718,3 +718,83 @@ Create the pull request:
 base: development
 compare: feature/10-docker-image-workflow
 ```
+
+## Feature 11: API Integration Tests
+
+### What Was Created
+
+- API test factory:
+  - `PatientCareApi.Tests/Api/PatientCareApiFactory.cs`
+- API endpoint tests:
+  - `PatientCareApi.Tests/Api/PatientEndpointTests.cs`
+  - `PatientCareApi.Tests/Api/AppointmentEndpointTests.cs`
+- Test project references and package:
+  - `Microsoft.AspNetCore.Mvc.Testing`
+  - references to `PatientCareApi.Api` and `PatientCareApi.Infrastructure`
+
+### Why It Was Created
+
+Unit tests prove small business rules. Integration tests prove the Web API works across layers.
+
+These tests call real HTTP endpoints in memory, so they verify controller routing, dependency injection, services, repositories, EF Core, middleware, and JSON responses together.
+
+### Main Logic
+
+`PatientCareApiFactory` starts the API in memory by using `WebApplicationFactory`.
+
+The factory removes the normal `PatientCareDbContext` registration and replaces it with an in-memory SQLite database.
+
+This is important because SQLite in-memory keeps tests fast and isolated while still using EF Core relational database behavior.
+
+### Files Changed
+
+- `PatientCareApi.Api/Program.cs`
+- `PatientCareApi.Tests/PatientCareApi.Tests.csproj`
+- `PatientCareApi.Tests/Api/PatientCareApiFactory.cs`
+- `PatientCareApi.Tests/Api/PatientEndpointTests.cs`
+- `PatientCareApi.Tests/Api/AppointmentEndpointTests.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `API_ENDPOINTS.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet test --no-restore
+```
+
+Expected result:
+
+```text
+Passed: 6
+Failed: 0
+```
+
+### How To Explain It In An Interview
+
+> I added integration tests with `WebApplicationFactory`. These tests start the API in memory and call real HTTP endpoints. The test setup replaces the normal SQLite file database with in-memory SQLite, so the tests are isolated but still exercise EF Core, repositories, services, controllers, middleware, and JSON serialization.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 11 api integration tests"   # Save current uncommitted changes, including new files
+git checkout development                                  # Switch to development branch
+git pull origin development                               # Get latest development code
+git checkout -B feature/11-api-integration-tests          # Create/reset Feature 11 branch
+git stash pop                                             # Bring Feature 11 changes back
+dotnet restore --configfile NuGet.Config                  # Restore packages
+dotnet test --no-restore                                  # Run all unit and integration tests
+git add .                                                 # Stage all files
+git commit -m "Add API integration tests"                 # Commit feature
+git push -u origin feature/11-api-integration-tests       # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/11-api-integration-tests
+```
