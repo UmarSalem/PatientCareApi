@@ -1,0 +1,31 @@
+# Build output
+bin/
+obj/
+
+# User-specific IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Test results and coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Local database files
+*.db
+*.db-shm
+*.db-wal
+
+# Environment files
+.env
+.env.*
+
+# NuGet generated files
+project.assets.json
+*.nuget.g.props
+*.nuget.g.targets
+.nuget-appdata/
+.nuget-packages/
