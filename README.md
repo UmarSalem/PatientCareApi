@@ -17,6 +17,8 @@ The project is being built feature by feature so it can be demonstrated as both 
 
 ## Current Status
 
+Feature 02 adds the Application contracts.
+
 Completed so far:
 
 - Feature 01: solution structure and Domain model
@@ -28,10 +30,11 @@ Completed so far:
 
 ## How To Run
 
-The API can run after packages are restored and the database is created through EF Core migrations.
+The runnable API will be completed in a later feature after dependency injection and controllers are added.
+
+Later, the command will be:
 
 ```powershell
-dotnet restore --configfile NuGet.Config
 dotnet run --project PatientCareApi.Api
 ```
 
@@ -85,5 +88,3 @@ git add .
 git commit -m "Add global error handling middleware"
 git push -u origin feature/06-error-handling
 ```
-
-See `GIT_WORKFLOW.md` for merge vs rebase notes.

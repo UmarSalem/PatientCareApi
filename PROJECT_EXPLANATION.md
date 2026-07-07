@@ -21,7 +21,6 @@ The Application layer contains use-case focused code:
 
 - DTOs
 - service interfaces
-- service implementations
 - repository interfaces
 - validation
 - mapping
@@ -46,7 +45,7 @@ Important Infrastructure classes:
 
 ### Api
 
-The Api layer exposes HTTP endpoints through controllers.
+The Api layer will expose HTTP endpoints through controllers.
 
 Controllers will stay thin. They should call services and return HTTP responses, not contain business logic.
 
@@ -61,6 +60,8 @@ The API layer also contains `ErrorHandlingMiddleware`, which converts exceptions
 ## Why DTOs Are Used
 
 DTOs protect the API from exposing database entities directly. They let the API control what data comes in and what data goes out.
+
+For example, `CreatePatientRequest` represents the JSON body used to create a patient, while `PatientResponse` represents the data returned by the API.
 
 ## Why A Service Layer Is Used
 

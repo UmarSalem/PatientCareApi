@@ -34,6 +34,14 @@ Current Application folders:
 
 Repository interfaces describe data access operations. Service interfaces describe use cases. Service implementations coordinate workflows. `IUnitOfWork` represents committing all pending repository changes.
 
+Current Application folders:
+
+- `Dtos`
+- `Repositories`
+- `Services`
+
+The repository interfaces describe the persistence operations the Application layer needs. The service interfaces describe the use cases that the Api layer will call.
+
 ### PatientCareApi.Infrastructure
 
 Contains EF Core `DbContext`, repository implementations, and the Unit of Work implementation.

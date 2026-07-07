@@ -169,6 +169,52 @@ Repositories query and stage data changes. `UnitOfWork` commits those changes by
 - `PatientCareApi.Infrastructure/Repositories/AppointmentRepository.cs`
 - `PatientCareApi.Infrastructure/Repositories/UnitOfWork.cs`
 - `PatientCareApi.Application/Services/PatientService.cs`
+## Feature 02: Application DTOs And Contracts
+
+### What Was Created
+
+- Patient DTOs:
+  - `CreatePatientRequest`
+  - `UpdatePatientRequest`
+  - `PatientResponse`
+- Treatment DTOs:
+  - `CreateTreatmentRequest`
+  - `TreatmentResponse`
+- Appointment DTOs:
+  - `CreateAppointmentRequest`
+  - `AppointmentResponse`
+- Repository interfaces:
+  - `IPatientRepository`
+  - `ITreatmentRepository`
+  - `IAppointmentRepository`
+- Service interfaces:
+  - `IPatientService`
+  - `ITreatmentService`
+  - `IAppointmentService`
+
+### Why It Was Created
+
+This feature creates the Application layer contracts.
+
+DTOs define what data enters and leaves the API. Repository interfaces define what data operations the service layer needs. Service interfaces define the use cases that controllers will call.
+
+This keeps the API controllers thin and keeps EF Core details outside the Application layer.
+
+### Files Changed
+
+- `PatientCareApi.Application/Dtos/Patients/CreatePatientRequest.cs`
+- `PatientCareApi.Application/Dtos/Patients/UpdatePatientRequest.cs`
+- `PatientCareApi.Application/Dtos/Patients/PatientResponse.cs`
+- `PatientCareApi.Application/Dtos/Treatments/CreateTreatmentRequest.cs`
+- `PatientCareApi.Application/Dtos/Treatments/TreatmentResponse.cs`
+- `PatientCareApi.Application/Dtos/Appointments/CreateAppointmentRequest.cs`
+- `PatientCareApi.Application/Dtos/Appointments/AppointmentResponse.cs`
+- `PatientCareApi.Application/Repositories/IPatientRepository.cs`
+- `PatientCareApi.Application/Repositories/ITreatmentRepository.cs`
+- `PatientCareApi.Application/Repositories/IAppointmentRepository.cs`
+- `PatientCareApi.Application/Services/IPatientService.cs`
+- `PatientCareApi.Application/Services/ITreatmentService.cs`
+- `PatientCareApi.Application/Services/IAppointmentService.cs`
 - `README.md`
 - `PROJECT_EXPLANATION.md`
 - `ARCHITECTURE.md`
@@ -211,6 +257,29 @@ dotnet build --no-restore                                        # Confirm the p
 git add .                                                        # Stage all changed files
 git commit -m "Add infrastructure persistence"                   # Save the feature as a commit
 git push -u origin feature/04-infrastructure-persistence         # Push the feature branch to GitHub
+dotnet build
+```
+
+This confirms the Application project still compiles and the dependency rule is respected: Application depends only on Domain.
+
+### How To Explain It In An Interview
+
+You can say:
+
+> I added the Application layer contracts before writing controllers or database code. The DTOs shape API input and output. The service interfaces describe use cases, and the repository interfaces describe persistence needs. This keeps the controller layer thin and keeps EF Core out of the Application layer.
+
+### GitHub Commands For This Feature
+
+Use this branch flow:
+
+```powershell
+git checkout development
+git pull origin development
+git checkout -b feature/02-application-contracts
+git status
+git add .
+git commit -m "Add application DTOs and contracts"
+git push -u origin feature/02-application-contracts
 ```
 
 Create the pull request:
@@ -218,103 +287,7 @@ Create the pull request:
 ```text
 base: development
 compare: feature/04-infrastructure-persistence
-```
-
-## Feature 05: API Dependency Injection And Controllers
-
-### What Was Created
-
-- SQLite connection string in `appsettings.json`
-- Dependency injection setup in `Program.cs`
-- Swagger UI setup
-- API controllers:
-  - `PatientsController`
-  - `TreatmentsController`
-  - `AppointmentsController`
-- Git workflow notes:
-  - `GIT_WORKFLOW.md`
-
-### Why It Was Created
-
-This feature connects the layers together.
-
-The API project registers the DbContext, repositories, Unit of Work, and services. Controllers use service interfaces, so they stay thin and do not contain business logic.
-
-### Main Logic
-
-`Program.cs` is the composition root. It connects abstractions to implementations:
-
-```csharp
-builder.Services.AddScoped<IPatientRepository, PatientRepository>();
-builder.Services.AddScoped<IPatientService, PatientService>();
-```
-
-Controllers handle HTTP concerns:
-
-- route
-- request body
-- status code
-- response DTO
-
-Services handle business workflows.
-
-Infrastructure handles EF Core database access.
-
-### Files Changed
-
-- `PatientCareApi.Api/PatientCareApi.Api.csproj`
-- `PatientCareApi.Api/appsettings.json`
-- `PatientCareApi.Api/Program.cs`
-- `PatientCareApi.Api/Controllers/PatientsController.cs`
-- `PatientCareApi.Api/Controllers/TreatmentsController.cs`
-- `PatientCareApi.Api/Controllers/AppointmentsController.cs`
-- `README.md`
-- `PROJECT_EXPLANATION.md`
-- `ARCHITECTURE.md`
-- `API_ENDPOINTS.md`
-- `LEARNING_NOTES.md`
-- `GIT_WORKFLOW.md`
-
-### How To Test It
-
-Run:
-
-```powershell
-dotnet restore --configfile NuGet.Config
-dotnet build --no-restore
-dotnet run --project PatientCareApi.Api
-```
-
-Then open:
-
-```text
-https://localhost:<port>/swagger
-```
-
-### How To Explain It In An Interview
-
-> I wired the API layer as the composition root. Program.cs registers EF Core, repositories, Unit of Work, and services with dependency injection. Controllers depend on service interfaces, not repositories or DbContext. This keeps controllers thin and keeps business logic in the Application layer.
-
-### GitHub Commands For This Feature
-
-```powershell
-git stash push -u -m "feature 05 api controllers"              # Save current uncommitted changes, including new files
-git checkout development                                      # Switch to development branch
-git pull origin development                                   # Get latest development code
-git checkout -B feature/05-api-controllers                    # Create/reset Feature 05 branch
-git stash pop                                                 # Bring Feature 05 changes back
-dotnet restore --configfile NuGet.Config                      # Restore packages
-dotnet build --no-restore                                     # Confirm build
-git add .                                                     # Stage all files
-git commit -m "Add API dependency injection and controllers"   # Commit feature
-git push -u origin feature/05-api-controllers                 # Push branch
-```
-
-Create the pull request:
-
-```text
-base: development
-compare: feature/05-api-controllers
+compare: feature/02-application-contracts
 ```
 
 ## Feature 06: Global Error Handling Middleware

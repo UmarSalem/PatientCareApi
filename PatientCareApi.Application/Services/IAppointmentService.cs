@@ -2,7 +2,7 @@ using PatientCareApi.Application.Dtos.Appointments;
 
 namespace PatientCareApi.Application.Services;
 
-// Appointment state changes go through the service, which calls domain methods like Complete and Cancel.
+// Appointment state changes go through the service, which will call domain methods like Complete and Cancel.
 public interface IAppointmentService
 {
     Task<IReadOnlyList<AppointmentResponse>> GetAllAsync(CancellationToken cancellationToken = default);
