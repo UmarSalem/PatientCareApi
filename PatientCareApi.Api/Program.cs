@@ -1,3 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using PatientCareApi.Api.Middleware;
+using PatientCareApi.Application.Repositories;
+using PatientCareApi.Application.Services;
+using PatientCareApi.Infrastructure.Data;
+using PatientCareApi.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Register MVC controller support so API endpoints can be defined in controller classes.
@@ -8,7 +15,10 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Only expose development API metadata while working locally.
+// Global error handling keeps controllers clean by avoiding repeated try/catch blocks.
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
+// Swagger UI is enabled only in development so it is available while learning and testing locally.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();

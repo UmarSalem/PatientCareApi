@@ -49,6 +49,14 @@ The Api layer will expose HTTP endpoints through controllers.
 
 Controllers will stay thin. They should call services and return HTTP responses, not contain business logic.
 
+Current controllers:
+
+- `PatientsController`
+- `TreatmentsController`
+- `AppointmentsController`
+
+The API layer also contains `ErrorHandlingMiddleware`, which converts exceptions into HTTP error responses.
+
 ## Why DTOs Are Used
 
 DTOs protect the API from exposing database entities directly. They let the API control what data comes in and what data goes out.
@@ -90,6 +98,44 @@ Repository interfaces live in Application. Repository implementations live in In
 Read-only list queries use `AsNoTracking()` because EF Core does not need to track changes for data that is only being displayed.
 
 Update and delete workflows return tracked entities, so the service can modify a domain object and `UnitOfWork` can save the change.
+
+## How Dependency Injection Works
+
+`Program.cs` registers interfaces with their implementations.
+
+Examples:
+
+```csharp
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+```
+
+This means controllers ask for interfaces, and ASP.NET Core creates the correct concrete classes at runtime.
+
+## How The API Endpoints Work
+
+Controllers receive HTTP requests, call Application services, and return HTTP responses.
+
+For example, `PatientsController.Create` accepts a `CreatePatientRequest`, calls `IPatientService.CreateAsync`, and returns `201 Created`.
+
+The controller does not validate business rules directly and does not talk to EF Core directly.
+
+## How Error Handling Works
+
+The API uses global exception handling middleware.
+
+It maps:
+
+- `NotFoundException` to `404 Not Found`
+- `ValidationException` to `400 Bad Request`
+- `ArgumentException` to `400 Bad Request`
+- unexpected exceptions to `500 Internal Server Error`
+
+This keeps controllers clean because they do not need repeated `try/catch` blocks.
+
+In an interview, you can explain it like this:
+
+> Application services throw meaningful exceptions. The API middleware catches those exceptions and translates them into proper HTTP status codes and JSON error responses.
 
 ## Interview Explanation
 

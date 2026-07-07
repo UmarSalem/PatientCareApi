@@ -2,6 +2,8 @@
 
 This file tracks the REST endpoints planned for PatientCareApi.
 
+Feature 05 implements these endpoints through controllers. Feature 06 adds global exception handling so service exceptions become clean HTTP error responses.
+
 ## Patients
 
 | Method | Endpoint | Purpose |
@@ -59,5 +61,24 @@ The endpoints are planned. Feature 02 added the DTOs and service interfaces that
 
 ### Appointments
 
-- `CreateAppointmentRequest`
-- `AppointmentResponse`
+- `PatientsController`
+- `TreatmentsController`
+- `AppointmentsController`
+
+## Error Responses
+
+| Exception | HTTP Status |
+| --- | --- |
+| `NotFoundException` | `404 Not Found` |
+| `ValidationException` | `400 Bad Request` |
+| `ArgumentException` | `400 Bad Request` |
+| Unexpected exception | `500 Internal Server Error` |
+
+Example error response:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Patient with id 10 was not found."
+}
+```

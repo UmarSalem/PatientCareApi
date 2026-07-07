@@ -25,6 +25,8 @@ Completed so far:
 - Feature 02: DTOs, repository interfaces, service interfaces, and Unit of Work contract
 - Feature 03: Application services, validation helper, DTO mapping, and custom not-found exception
 - Feature 04: EF Core DbContext, repository implementations, and Unit of Work implementation
+- Feature 05: API dependency injection, Swagger UI, connection string, and REST controllers
+- Feature 06: Global error handling middleware
 
 ## How To Run
 
@@ -72,17 +74,17 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 04:
+For Feature 06:
 
 ```powershell
-git stash push -u -m "feature 04 infrastructure persistence"
+git stash push -u -m "feature 06 error handling"
 git checkout development
 git pull origin development
-git checkout -B feature/04-infrastructure-persistence
+git checkout -B feature/06-error-handling
 git stash pop
 dotnet restore --configfile NuGet.Config
 dotnet build --no-restore
 git add .
-git commit -m "Add infrastructure persistence"
-git push -u origin feature/04-infrastructure-persistence
+git commit -m "Add global error handling middleware"
+git push -u origin feature/06-error-handling
 ```

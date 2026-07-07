@@ -1,0 +1,1406 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R 22 0 R 24 0 R ] /Count 10 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 3165 >>
+stream
+BT
+/F2 18 Tf
+1 0 0 1 50 795 Tm
+(PatientCareApi Project Report) Tj
+/F2 18 Tf
+1 0 0 1 50 771 Tm
+(PatientCareApi Project Report For A Junior Developer) Tj
+/F2 14 Tf
+1 0 0 1 50 743 Tm
+(1. Project Overview) Tj
+/F1 10 Tf
+1 0 0 1 50 718 Tm
+(PatientCareApi is a .NET ASP.NET Core Web API project for managing patients, treatments,) Tj
+/F1 10 Tf
+1 0 0 1 50 704 Tm
+(and appointments.) Tj
+/F1 10 Tf
+1 0 0 1 50 684 Tm
+(The project is designed as an interview practice backend system. The goal is not only to) Tj
+/F1 10 Tf
+1 0 0 1 50 670 Tm
+(make endpoints work, but also to show clean architecture, GitHub workflow, dependency) Tj
+/F1 10 Tf
+1 0 0 1 50 656 Tm
+(injection, validation, EF Core, error handling, and good documentation.) Tj
+/F1 10 Tf
+1 0 0 1 50 636 Tm
+(The API is built feature by feature. Each feature is developed on its own branch,) Tj
+/F1 10 Tf
+1 0 0 1 50 622 Tm
+(explained in documentation, and pushed through a pull request.) Tj
+/F2 14 Tf
+1 0 0 1 50 602 Tm
+(2. User Story) Tj
+/F1 10 Tf
+1 0 0 1 50 577 Tm
+(As a clinic staff member, I want to manage patient records, treatments, and appointments) Tj
+/F1 10 Tf
+1 0 0 1 50 563 Tm
+(so that I can keep healthcare information organized and accessible through a REST API.) Tj
+/F2 14 Tf
+1 0 0 1 50 543 Tm
+(3. Main Business Requirements) Tj
+/F1 10 Tf
+1 0 0 1 64 518 Tm
+(* Create, read, update, and delete patients.) Tj
+/F1 10 Tf
+1 0 0 1 64 504 Tm
+(* Add treatments for an existing patient.) Tj
+/F1 10 Tf
+1 0 0 1 64 490 Tm
+(* View all treatments or treatments for one patient.) Tj
+/F1 10 Tf
+1 0 0 1 64 476 Tm
+(* Create appointments for an existing patient.) Tj
+/F1 10 Tf
+1 0 0 1 64 462 Tm
+(* View all appointments or appointments for one patient.) Tj
+/F1 10 Tf
+1 0 0 1 64 448 Tm
+(* Complete an appointment.) Tj
+/F1 10 Tf
+1 0 0 1 64 434 Tm
+(* Cancel an appointment.) Tj
+/F1 10 Tf
+1 0 0 1 64 420 Tm
+(* Return proper HTTP status codes.) Tj
+/F1 10 Tf
+1 0 0 1 64 406 Tm
+(* Validate incoming request data.) Tj
+/F1 10 Tf
+1 0 0 1 64 392 Tm
+(* Store data in SQLite using EF Core.) Tj
+/F1 10 Tf
+1 0 0 1 64 378 Tm
+(* Keep controllers thin.) Tj
+/F1 10 Tf
+1 0 0 1 64 364 Tm
+(* Keep business logic outside controllers.) Tj
+/F1 10 Tf
+1 0 0 1 64 350 Tm
+(* Use clean layered architecture.) Tj
+/F2 14 Tf
+1 0 0 1 50 330 Tm
+(4. Main API Resources) Tj
+/F1 10 Tf
+1 0 0 1 50 305 Tm
+(The project has three main resources:) Tj
+/F1 10 Tf
+1 0 0 1 64 285 Tm
+(* Patient) Tj
+/F1 10 Tf
+1 0 0 1 64 271 Tm
+(* Treatment) Tj
+/F1 10 Tf
+1 0 0 1 64 257 Tm
+(* Appointment) Tj
+/F1 10 Tf
+1 0 0 1 50 237 Tm
+(Patient is the central resource. Treatments and appointments belong to a patient.) Tj
+/F2 14 Tf
+1 0 0 1 50 217 Tm
+(5. Domain Model) Tj
+/F2 12 Tf
+1 0 0 1 50 192 Tm
+(Patient) Tj
+/F1 10 Tf
+1 0 0 1 50 169 Tm
+(A patient represents a person receiving care.) Tj
+/F1 10 Tf
+1 0 0 1 50 149 Tm
+(Important properties:) Tj
+/F1 10 Tf
+1 0 0 1 64 129 Tm
+(* Id) Tj
+/F1 10 Tf
+1 0 0 1 64 115 Tm
+(* FirstName) Tj
+/F1 10 Tf
+1 0 0 1 64 101 Tm
+(* LastName) Tj
+/F1 10 Tf
+1 0 0 1 64 87 Tm
+(* DateOfBirth) Tj
+/F1 10 Tf
+1 0 0 1 64 73 Tm
+(* Email) Tj
+ET
+
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 2593 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 64 795 Tm
+(* PhoneNumber) Tj
+/F1 10 Tf
+1 0 0 1 64 781 Tm
+(* CreatedAt) Tj
+/F1 10 Tf
+1 0 0 1 64 767 Tm
+(* UpdatedAt) Tj
+/F1 10 Tf
+1 0 0 1 64 753 Tm
+(* Treatments) Tj
+/F1 10 Tf
+1 0 0 1 64 739 Tm
+(* Appointments) Tj
+/F1 10 Tf
+1 0 0 1 50 719 Tm
+(Important behavior:) Tj
+/F1 10 Tf
+1 0 0 1 64 699 Tm
+(* Update patient details through a domain method.) Tj
+/F1 10 Tf
+1 0 0 1 64 685 Tm
+(* Validate required names.) Tj
+/F1 10 Tf
+1 0 0 1 64 671 Tm
+(* Validate date of birth is in the past.) Tj
+/F1 10 Tf
+1 0 0 1 50 651 Tm
+(Why this matters:) Tj
+/F1 10 Tf
+1 0 0 1 50 631 Tm
+(Domain entities should protect their own important state. Instead of allowing any code) Tj
+/F1 10 Tf
+1 0 0 1 50 617 Tm
+(to freely set values, important changes happen through methods.) Tj
+/F2 12 Tf
+1 0 0 1 50 597 Tm
+(Treatment) Tj
+/F1 10 Tf
+1 0 0 1 50 574 Tm
+(A treatment represents care or medical work done for a patient.) Tj
+/F1 10 Tf
+1 0 0 1 50 554 Tm
+(Important properties:) Tj
+/F1 10 Tf
+1 0 0 1 64 534 Tm
+(* Id) Tj
+/F1 10 Tf
+1 0 0 1 64 520 Tm
+(* PatientId) Tj
+/F1 10 Tf
+1 0 0 1 64 506 Tm
+(* Name) Tj
+/F1 10 Tf
+1 0 0 1 64 492 Tm
+(* Description) Tj
+/F1 10 Tf
+1 0 0 1 64 478 Tm
+(* TreatmentDate) Tj
+/F1 10 Tf
+1 0 0 1 64 464 Tm
+(* Notes) Tj
+/F1 10 Tf
+1 0 0 1 64 450 Tm
+(* CreatedAt) Tj
+/F1 10 Tf
+1 0 0 1 50 430 Tm
+(Important rules:) Tj
+/F1 10 Tf
+1 0 0 1 64 410 Tm
+(* Treatment must belong to an existing patient.) Tj
+/F1 10 Tf
+1 0 0 1 64 396 Tm
+(* Treatment name is required.) Tj
+/F2 12 Tf
+1 0 0 1 50 376 Tm
+(Appointment) Tj
+/F1 10 Tf
+1 0 0 1 50 353 Tm
+(An appointment represents a scheduled visit or meeting with a patient.) Tj
+/F1 10 Tf
+1 0 0 1 50 333 Tm
+(Important properties:) Tj
+/F1 10 Tf
+1 0 0 1 64 313 Tm
+(* Id) Tj
+/F1 10 Tf
+1 0 0 1 64 299 Tm
+(* PatientId) Tj
+/F1 10 Tf
+1 0 0 1 64 285 Tm
+(* AppointmentDate) Tj
+/F1 10 Tf
+1 0 0 1 64 271 Tm
+(* Reason) Tj
+/F1 10 Tf
+1 0 0 1 64 257 Tm
+(* Status) Tj
+/F1 10 Tf
+1 0 0 1 64 243 Tm
+(* CreatedAt) Tj
+/F1 10 Tf
+1 0 0 1 64 229 Tm
+(* UpdatedAt) Tj
+/F1 10 Tf
+1 0 0 1 50 209 Tm
+(Important behavior:) Tj
+/F1 10 Tf
+1 0 0 1 64 189 Tm
+(* Complete\(\)) Tj
+/F1 10 Tf
+1 0 0 1 64 175 Tm
+(* Cancel\(\)) Tj
+/F1 10 Tf
+1 0 0 1 50 155 Tm
+(Why this matters:) Tj
+/F1 10 Tf
+1 0 0 1 50 135 Tm
+(Appointment status changes are business rules. They belong in the domain entity, not in) Tj
+/F1 10 Tf
+1 0 0 1 50 121 Tm
+(the controller.) Tj
+/F2 12 Tf
+1 0 0 1 50 101 Tm
+(AppointmentStatus) Tj
+/F1 10 Tf
+1 0 0 1 50 78 Tm
+(AppointmentStatus is an enum:) Tj
+ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 2677 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 64 795 Tm
+(* Scheduled) Tj
+/F1 10 Tf
+1 0 0 1 64 781 Tm
+(* Completed) Tj
+/F1 10 Tf
+1 0 0 1 64 767 Tm
+(* Cancelled) Tj
+/F1 10 Tf
+1 0 0 1 50 747 Tm
+(Enums make status values safer than plain strings because the code can only use known) Tj
+/F1 10 Tf
+1 0 0 1 50 733 Tm
+(valid values.) Tj
+/F2 14 Tf
+1 0 0 1 50 713 Tm
+(6. Clean Architecture Design) Tj
+/F1 10 Tf
+1 0 0 1 50 688 Tm
+(The solution uses five projects:) Tj
+/F1 10 Tf
+1 0 0 1 64 668 Tm
+(* PatientCareApi.Domain) Tj
+/F1 10 Tf
+1 0 0 1 64 654 Tm
+(* PatientCareApi.Application) Tj
+/F1 10 Tf
+1 0 0 1 64 640 Tm
+(* PatientCareApi.Infrastructure) Tj
+/F1 10 Tf
+1 0 0 1 64 626 Tm
+(* PatientCareApi.Api) Tj
+/F1 10 Tf
+1 0 0 1 64 612 Tm
+(* PatientCareApi.Tests) Tj
+/F1 10 Tf
+1 0 0 1 50 592 Tm
+(The dependency direction is:) Tj
+/F1 10 Tf
+1 0 0 1 50 572 Tm
+(Api -> Application -> Domain) Tj
+/F1 10 Tf
+1 0 0 1 50 558 Tm
+(Api -> Infrastructure -> Application -> Domain) Tj
+/F1 10 Tf
+1 0 0 1 50 544 Tm
+(Tests -> projects needed for testing) Tj
+/F1 10 Tf
+1 0 0 1 50 524 Tm
+(The important rule:) Tj
+/F1 10 Tf
+1 0 0 1 50 504 Tm
+(Domain does not depend on any other project.) Tj
+/F2 14 Tf
+1 0 0 1 50 484 Tm
+(7. Domain Layer) Tj
+/F1 10 Tf
+1 0 0 1 50 459 Tm
+(The Domain layer contains the core business objects and behavior.) Tj
+/F1 10 Tf
+1 0 0 1 50 439 Tm
+(It contains:) Tj
+/F1 10 Tf
+1 0 0 1 64 419 Tm
+(* Patient) Tj
+/F1 10 Tf
+1 0 0 1 64 405 Tm
+(* Treatment) Tj
+/F1 10 Tf
+1 0 0 1 64 391 Tm
+(* Appointment) Tj
+/F1 10 Tf
+1 0 0 1 64 377 Tm
+(* AppointmentStatus) Tj
+/F1 10 Tf
+1 0 0 1 50 357 Tm
+(The Domain layer does not know about:) Tj
+/F1 10 Tf
+1 0 0 1 64 337 Tm
+(* Controllers) Tj
+/F1 10 Tf
+1 0 0 1 64 323 Tm
+(* HTTP) Tj
+/F1 10 Tf
+1 0 0 1 64 309 Tm
+(* EF Core) Tj
+/F1 10 Tf
+1 0 0 1 64 295 Tm
+(* SQLite) Tj
+/F1 10 Tf
+1 0 0 1 64 281 Tm
+(* Swagger) Tj
+/F1 10 Tf
+1 0 0 1 50 261 Tm
+(Why this is good:) Tj
+/F1 10 Tf
+1 0 0 1 50 241 Tm
+(The core business model stays independent. If the database or API framework changes, the) Tj
+/F1 10 Tf
+1 0 0 1 50 227 Tm
+(domain model can stay mostly the same.) Tj
+/F2 14 Tf
+1 0 0 1 50 207 Tm
+(8. Application Layer) Tj
+/F1 10 Tf
+1 0 0 1 50 182 Tm
+(The Application layer contains use-case focused code.) Tj
+/F1 10 Tf
+1 0 0 1 50 162 Tm
+(It contains:) Tj
+/F1 10 Tf
+1 0 0 1 64 142 Tm
+(* DTOs) Tj
+/F1 10 Tf
+1 0 0 1 64 128 Tm
+(* Repository interfaces) Tj
+/F1 10 Tf
+1 0 0 1 64 114 Tm
+(* Service interfaces) Tj
+/F1 10 Tf
+1 0 0 1 64 100 Tm
+(* Service implementations) Tj
+/F1 10 Tf
+1 0 0 1 64 86 Tm
+(* Mapping helpers) Tj
+/F1 10 Tf
+1 0 0 1 64 72 Tm
+(* Validation helper) Tj
+ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 2790 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 64 795 Tm
+(* NotFoundException) Tj
+/F1 10 Tf
+1 0 0 1 64 781 Tm
+(* IUnitOfWork) Tj
+/F1 10 Tf
+1 0 0 1 50 761 Tm
+(The Application layer coordinates workflows.) Tj
+/F1 10 Tf
+1 0 0 1 50 741 Tm
+(Example workflow:) Tj
+/F1 10 Tf
+1 0 0 1 50 721 Tm
+(Create patient:) Tj
+/F1 10 Tf
+1 0 0 1 50 701 Tm
+(1. Validate request DTO.) Tj
+/F1 10 Tf
+1 0 0 1 50 687 Tm
+(2. Create Patient domain entity.) Tj
+/F1 10 Tf
+1 0 0 1 50 673 Tm
+(3. Add patient through IPatientRepository.) Tj
+/F1 10 Tf
+1 0 0 1 50 659 Tm
+(4. Save through IUnitOfWork.) Tj
+/F1 10 Tf
+1 0 0 1 50 645 Tm
+(5. Return PatientResponse DTO.) Tj
+/F1 10 Tf
+1 0 0 1 50 625 Tm
+(The Application layer depends only on Domain.) Tj
+/F2 14 Tf
+1 0 0 1 50 605 Tm
+(9. DTOs) Tj
+/F1 10 Tf
+1 0 0 1 50 580 Tm
+(DTO means Data Transfer Object.) Tj
+/F1 10 Tf
+1 0 0 1 50 560 Tm
+(DTOs define what data comes into the API and what data goes out of the API.) Tj
+/F1 10 Tf
+1 0 0 1 50 540 Tm
+(Examples:) Tj
+/F1 10 Tf
+1 0 0 1 64 520 Tm
+(* CreatePatientRequest) Tj
+/F1 10 Tf
+1 0 0 1 64 506 Tm
+(* UpdatePatientRequest) Tj
+/F1 10 Tf
+1 0 0 1 64 492 Tm
+(* PatientResponse) Tj
+/F1 10 Tf
+1 0 0 1 64 478 Tm
+(* CreateTreatmentRequest) Tj
+/F1 10 Tf
+1 0 0 1 64 464 Tm
+(* TreatmentResponse) Tj
+/F1 10 Tf
+1 0 0 1 64 450 Tm
+(* CreateAppointmentRequest) Tj
+/F1 10 Tf
+1 0 0 1 64 436 Tm
+(* AppointmentResponse) Tj
+/F1 10 Tf
+1 0 0 1 50 416 Tm
+(Why DTOs are used:) Tj
+/F1 10 Tf
+1 0 0 1 64 396 Tm
+(* They prevent exposing domain or database entities directly.) Tj
+/F1 10 Tf
+1 0 0 1 64 382 Tm
+(* They let the API control its input and output shape.) Tj
+/F1 10 Tf
+1 0 0 1 64 368 Tm
+(* They make validation clearer.) Tj
+/F1 10 Tf
+1 0 0 1 64 354 Tm
+(* They protect the internal model from external clients.) Tj
+/F2 14 Tf
+1 0 0 1 50 334 Tm
+(10. Service Layer) Tj
+/F1 10 Tf
+1 0 0 1 50 309 Tm
+(Services contain application workflows.) Tj
+/F1 10 Tf
+1 0 0 1 50 289 Tm
+(Important services:) Tj
+/F1 10 Tf
+1 0 0 1 64 269 Tm
+(* PatientService) Tj
+/F1 10 Tf
+1 0 0 1 64 255 Tm
+(* TreatmentService) Tj
+/F1 10 Tf
+1 0 0 1 64 241 Tm
+(* AppointmentService) Tj
+/F1 10 Tf
+1 0 0 1 50 221 Tm
+(Services are responsible for:) Tj
+/F1 10 Tf
+1 0 0 1 64 201 Tm
+(* Validating requests.) Tj
+/F1 10 Tf
+1 0 0 1 64 187 Tm
+(* Checking if related records exist.) Tj
+/F1 10 Tf
+1 0 0 1 64 173 Tm
+(* Calling repository interfaces.) Tj
+/F1 10 Tf
+1 0 0 1 64 159 Tm
+(* Calling domain methods.) Tj
+/F1 10 Tf
+1 0 0 1 64 145 Tm
+(* Saving through Unit of Work.) Tj
+/F1 10 Tf
+1 0 0 1 64 131 Tm
+(* Returning response DTOs.) Tj
+/F1 10 Tf
+1 0 0 1 50 111 Tm
+(Controllers should not contain business logic. Controllers call services.) Tj
+/F2 14 Tf
+1 0 0 1 50 91 Tm
+(11. Repository Interfaces) Tj
+ET
+
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 2832 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(Repository interfaces live in the Application layer.) Tj
+/F1 10 Tf
+1 0 0 1 50 775 Tm
+(Examples:) Tj
+/F1 10 Tf
+1 0 0 1 64 755 Tm
+(* IPatientRepository) Tj
+/F1 10 Tf
+1 0 0 1 64 741 Tm
+(* ITreatmentRepository) Tj
+/F1 10 Tf
+1 0 0 1 64 727 Tm
+(* IAppointmentRepository) Tj
+/F1 10 Tf
+1 0 0 1 50 707 Tm
+(They describe what data operations the Application layer needs.) Tj
+/F1 10 Tf
+1 0 0 1 50 687 Tm
+(They do not use EF Core directly.) Tj
+/F1 10 Tf
+1 0 0 1 50 667 Tm
+(Why this matters:) Tj
+/F1 10 Tf
+1 0 0 1 50 647 Tm
+(Application code depends on abstractions, not database implementation details.) Tj
+/F2 14 Tf
+1 0 0 1 50 627 Tm
+(12. Unit Of Work) Tj
+/F1 10 Tf
+1 0 0 1 50 602 Tm
+(IUnitOfWork represents saving or committing all pending changes.) Tj
+/F1 10 Tf
+1 0 0 1 50 582 Tm
+(The service does this:) Tj
+/F1 10 Tf
+1 0 0 1 50 562 Tm
+(await _patientRepository.AddAsync\(patient, cancellationToken\);) Tj
+/F1 10 Tf
+1 0 0 1 50 548 Tm
+(await _unitOfWork.SaveChangesAsync\(cancellationToken\);) Tj
+/F1 10 Tf
+1 0 0 1 50 528 Tm
+(Repository stages the change. Unit of Work commits it.) Tj
+/F1 10 Tf
+1 0 0 1 50 508 Tm
+(Why this is useful:) Tj
+/F1 10 Tf
+1 0 0 1 50 488 Tm
+(If one service method uses multiple repositories, it can save once at the end.) Tj
+/F1 10 Tf
+1 0 0 1 50 468 Tm
+(Interview explanation:) Tj
+/F1 10 Tf
+1 0 0 1 50 448 Tm
+(Repositories handle data access operations. Unit of Work handles committing changes.) Tj
+/F1 10 Tf
+1 0 0 1 50 434 Tm
+(This keeps saving as one responsibility.) Tj
+/F2 14 Tf
+1 0 0 1 50 414 Tm
+(13. Infrastructure Layer) Tj
+/F1 10 Tf
+1 0 0 1 50 389 Tm
+(The Infrastructure layer contains EF Core and SQLite details.) Tj
+/F1 10 Tf
+1 0 0 1 50 369 Tm
+(It contains:) Tj
+/F1 10 Tf
+1 0 0 1 64 349 Tm
+(* PatientCareDbContext) Tj
+/F1 10 Tf
+1 0 0 1 64 335 Tm
+(* PatientRepository) Tj
+/F1 10 Tf
+1 0 0 1 64 321 Tm
+(* TreatmentRepository) Tj
+/F1 10 Tf
+1 0 0 1 64 307 Tm
+(* AppointmentRepository) Tj
+/F1 10 Tf
+1 0 0 1 64 293 Tm
+(* UnitOfWork) Tj
+/F1 10 Tf
+1 0 0 1 50 273 Tm
+(Infrastructure depends on Application and Domain.) Tj
+/F1 10 Tf
+1 0 0 1 50 253 Tm
+(This means Infrastructure can implement Application interfaces.) Tj
+/F2 14 Tf
+1 0 0 1 50 233 Tm
+(14. EF Core DbContext) Tj
+/F1 10 Tf
+1 0 0 1 50 208 Tm
+(PatientCareDbContext represents the database session.) Tj
+/F1 10 Tf
+1 0 0 1 50 188 Tm
+(It contains:) Tj
+/F1 10 Tf
+1 0 0 1 64 168 Tm
+(* DbSet<Patient>) Tj
+/F1 10 Tf
+1 0 0 1 64 154 Tm
+(* DbSet<Treatment>) Tj
+/F1 10 Tf
+1 0 0 1 64 140 Tm
+(* DbSet<Appointment>) Tj
+/F1 10 Tf
+1 0 0 1 50 120 Tm
+(It also configures:) Tj
+/F1 10 Tf
+1 0 0 1 64 100 Tm
+(* Primary keys) Tj
+/F1 10 Tf
+1 0 0 1 64 86 Tm
+(* Required fields) Tj
+/F1 10 Tf
+1 0 0 1 64 72 Tm
+(* Max lengths) Tj
+ET
+
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 2955 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 64 795 Tm
+(* Relationships) Tj
+/F1 10 Tf
+1 0 0 1 64 781 Tm
+(* Cascade delete) Tj
+/F1 10 Tf
+1 0 0 1 64 767 Tm
+(* AppointmentStatus conversion to string) Tj
+/F1 10 Tf
+1 0 0 1 64 753 Tm
+(* Backing-field collection access for Patient relationships) Tj
+/F1 10 Tf
+1 0 0 1 50 733 Tm
+(Why DbContext is in Infrastructure:) Tj
+/F1 10 Tf
+1 0 0 1 50 713 Tm
+(EF Core is a persistence detail. It should not be inside Domain or Application.) Tj
+/F2 14 Tf
+1 0 0 1 50 693 Tm
+(15. Repository Implementations) Tj
+/F1 10 Tf
+1 0 0 1 50 668 Tm
+(Repository implementations live in Infrastructure.) Tj
+/F2 12 Tf
+1 0 0 1 50 648 Tm
+(PatientRepository) Tj
+/F1 10 Tf
+1 0 0 1 50 625 Tm
+(PatientRepository handles patient database operations.) Tj
+/F1 10 Tf
+1 0 0 1 50 605 Tm
+(Important logic:) Tj
+/F1 10 Tf
+1 0 0 1 64 585 Tm
+(* GetAllAsync uses AsNoTracking for read-only performance.) Tj
+/F1 10 Tf
+1 0 0 1 64 571 Tm
+(* GetByIdAsync returns a tracked entity because update and delete workflows need) Tj
+/F1 10 Tf
+1 0 0 1 64 557 Tm
+(EF Core to detect changes.) Tj
+/F1 10 Tf
+1 0 0 1 64 543 Tm
+(* AddAsync stages a new patient.) Tj
+/F1 10 Tf
+1 0 0 1 64 529 Tm
+(* DeleteAsync marks a patient for deletion.) Tj
+/F2 12 Tf
+1 0 0 1 50 509 Tm
+(TreatmentRepository) Tj
+/F1 10 Tf
+1 0 0 1 50 486 Tm
+(TreatmentRepository handles treatment database operations.) Tj
+/F1 10 Tf
+1 0 0 1 50 466 Tm
+(Important logic:) Tj
+/F1 10 Tf
+1 0 0 1 64 446 Tm
+(* It filters treatments by PatientId in the database.) Tj
+/F1 10 Tf
+1 0 0 1 64 432 Tm
+(* It uses AsNoTracking for read-only queries.) Tj
+/F1 10 Tf
+1 0 0 1 64 418 Tm
+(* It stages new treatments with AddAsync.) Tj
+/F2 12 Tf
+1 0 0 1 50 398 Tm
+(AppointmentRepository) Tj
+/F1 10 Tf
+1 0 0 1 50 375 Tm
+(AppointmentRepository handles appointment database operations.) Tj
+/F1 10 Tf
+1 0 0 1 50 355 Tm
+(Important logic:) Tj
+/F1 10 Tf
+1 0 0 1 64 335 Tm
+(* Read-only list queries use AsNoTracking.) Tj
+/F1 10 Tf
+1 0 0 1 64 321 Tm
+(* GetByIdAsync returns a tracked appointment so AppointmentService can call) Tj
+/F1 10 Tf
+1 0 0 1 64 307 Tm
+(Complete or Cancel and then save.) Tj
+/F2 12 Tf
+1 0 0 1 50 287 Tm
+(UnitOfWork) Tj
+/F1 10 Tf
+1 0 0 1 50 264 Tm
+(UnitOfWork calls DbContext.SaveChangesAsync.) Tj
+/F1 10 Tf
+1 0 0 1 50 244 Tm
+(This is the one place where the Application workflow is committed to the database.) Tj
+/F2 14 Tf
+1 0 0 1 50 224 Tm
+(16. API Layer) Tj
+/F1 10 Tf
+1 0 0 1 50 199 Tm
+(The API layer exposes HTTP endpoints.) Tj
+/F1 10 Tf
+1 0 0 1 50 179 Tm
+(It contains:) Tj
+/F1 10 Tf
+1 0 0 1 64 159 Tm
+(* Program.cs) Tj
+/F1 10 Tf
+1 0 0 1 64 145 Tm
+(* Controllers) Tj
+/F1 10 Tf
+1 0 0 1 64 131 Tm
+(* appsettings.json) Tj
+/F1 10 Tf
+1 0 0 1 64 117 Tm
+(* Swagger setup) Tj
+/F1 10 Tf
+1 0 0 1 64 103 Tm
+(* ErrorHandlingMiddleware) Tj
+/F1 10 Tf
+1 0 0 1 50 83 Tm
+(The API layer depends on Application and Infrastructure.) Tj
+ET
+
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 2748 >>
+stream
+BT
+/F2 14 Tf
+1 0 0 1 50 795 Tm
+(17. Program.cs) Tj
+/F1 10 Tf
+1 0 0 1 50 770 Tm
+(Program.cs is the application startup file.) Tj
+/F1 10 Tf
+1 0 0 1 50 750 Tm
+(It does three main things:) Tj
+/F1 10 Tf
+1 0 0 1 50 730 Tm
+(1. Registers services in dependency injection.) Tj
+/F1 10 Tf
+1 0 0 1 50 716 Tm
+(2. Builds the application.) Tj
+/F1 10 Tf
+1 0 0 1 50 702 Tm
+(3. Configures middleware and routes.) Tj
+/F1 10 Tf
+1 0 0 1 50 682 Tm
+(Important registrations:) Tj
+/F1 10 Tf
+1 0 0 1 64 662 Tm
+(* AddControllers) Tj
+/F1 10 Tf
+1 0 0 1 64 648 Tm
+(* AddOpenApi) Tj
+/F1 10 Tf
+1 0 0 1 64 634 Tm
+(* AddSwaggerGen) Tj
+/F1 10 Tf
+1 0 0 1 64 620 Tm
+(* AddDbContext) Tj
+/F1 10 Tf
+1 0 0 1 64 606 Tm
+(* Repository interfaces to repository implementations) Tj
+/F1 10 Tf
+1 0 0 1 64 592 Tm
+(* Service interfaces to service implementations) Tj
+/F1 10 Tf
+1 0 0 1 64 578 Tm
+(* IUnitOfWork to UnitOfWork) Tj
+/F1 10 Tf
+1 0 0 1 50 558 Tm
+(Program.cs is also called the composition root.) Tj
+/F1 10 Tf
+1 0 0 1 50 538 Tm
+(Composition root means:) Tj
+/F1 10 Tf
+1 0 0 1 50 518 Tm
+(This is where the outer application connects interfaces to concrete classes.) Tj
+/F2 14 Tf
+1 0 0 1 50 498 Tm
+(18. Dependency Injection) Tj
+/F1 10 Tf
+1 0 0 1 50 473 Tm
+(Dependency Injection means classes receive their dependencies instead of creating them) Tj
+/F1 10 Tf
+1 0 0 1 50 459 Tm
+(directly.) Tj
+/F1 10 Tf
+1 0 0 1 50 439 Tm
+(Example:) Tj
+/F1 10 Tf
+1 0 0 1 50 419 Tm
+(PatientsController receives IPatientService.) Tj
+/F1 10 Tf
+1 0 0 1 50 399 Tm
+(PatientService receives IPatientRepository and IUnitOfWork.) Tj
+/F1 10 Tf
+1 0 0 1 50 379 Tm
+(Why this is good:) Tj
+/F1 10 Tf
+1 0 0 1 64 359 Tm
+(* Classes are loosely coupled.) Tj
+/F1 10 Tf
+1 0 0 1 64 345 Tm
+(* Code is easier to test.) Tj
+/F1 10 Tf
+1 0 0 1 64 331 Tm
+(* Implementation can change without changing the caller.) Tj
+/F2 14 Tf
+1 0 0 1 50 311 Tm
+(19. Controllers) Tj
+/F1 10 Tf
+1 0 0 1 50 286 Tm
+(Controllers handle HTTP concerns.) Tj
+/F1 10 Tf
+1 0 0 1 50 266 Tm
+(Current controllers:) Tj
+/F1 10 Tf
+1 0 0 1 64 246 Tm
+(* PatientsController) Tj
+/F1 10 Tf
+1 0 0 1 64 232 Tm
+(* TreatmentsController) Tj
+/F1 10 Tf
+1 0 0 1 64 218 Tm
+(* AppointmentsController) Tj
+/F1 10 Tf
+1 0 0 1 50 198 Tm
+(Controllers are responsible for:) Tj
+/F1 10 Tf
+1 0 0 1 64 178 Tm
+(* Route definitions) Tj
+/F1 10 Tf
+1 0 0 1 64 164 Tm
+(* Accepting request DTOs) Tj
+/F1 10 Tf
+1 0 0 1 64 150 Tm
+(* Calling services) Tj
+/F1 10 Tf
+1 0 0 1 64 136 Tm
+(* Returning HTTP responses) Tj
+/F1 10 Tf
+1 0 0 1 50 116 Tm
+(Controllers are not responsible for:) Tj
+/F1 10 Tf
+1 0 0 1 64 96 Tm
+(* EF Core queries) Tj
+/F1 10 Tf
+1 0 0 1 64 82 Tm
+(* Business rules) Tj
+ET
+
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Length 2746 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 64 795 Tm
+(* Manual validation logic) Tj
+/F1 10 Tf
+1 0 0 1 64 781 Tm
+(* Database saving) Tj
+/F2 14 Tf
+1 0 0 1 50 761 Tm
+(20. Main Endpoints) Tj
+/F1 10 Tf
+1 0 0 1 50 736 Tm
+(Patients:) Tj
+/F1 10 Tf
+1 0 0 1 64 716 Tm
+(* GET /api/patients) Tj
+/F1 10 Tf
+1 0 0 1 64 702 Tm
+(* GET /api/patients/{id}) Tj
+/F1 10 Tf
+1 0 0 1 64 688 Tm
+(* POST /api/patients) Tj
+/F1 10 Tf
+1 0 0 1 64 674 Tm
+(* PUT /api/patients/{id}) Tj
+/F1 10 Tf
+1 0 0 1 64 660 Tm
+(* DELETE /api/patients/{id}) Tj
+/F1 10 Tf
+1 0 0 1 50 640 Tm
+(Treatments:) Tj
+/F1 10 Tf
+1 0 0 1 64 620 Tm
+(* GET /api/treatments) Tj
+/F1 10 Tf
+1 0 0 1 64 606 Tm
+(* GET /api/patients/{id}/treatments) Tj
+/F1 10 Tf
+1 0 0 1 64 592 Tm
+(* POST /api/patients/{id}/treatments) Tj
+/F1 10 Tf
+1 0 0 1 50 572 Tm
+(Appointments:) Tj
+/F1 10 Tf
+1 0 0 1 64 552 Tm
+(* GET /api/appointments) Tj
+/F1 10 Tf
+1 0 0 1 64 538 Tm
+(* GET /api/patients/{id}/appointments) Tj
+/F1 10 Tf
+1 0 0 1 64 524 Tm
+(* POST /api/appointments) Tj
+/F1 10 Tf
+1 0 0 1 64 510 Tm
+(* PATCH /api/appointments/{id}/complete) Tj
+/F1 10 Tf
+1 0 0 1 64 496 Tm
+(* PATCH /api/appointments/{id}/cancel) Tj
+/F2 14 Tf
+1 0 0 1 50 476 Tm
+(21. Error Handling) Tj
+/F1 10 Tf
+1 0 0 1 50 451 Tm
+(The API uses ErrorHandlingMiddleware.) Tj
+/F1 10 Tf
+1 0 0 1 50 431 Tm
+(It maps exceptions to HTTP status codes:) Tj
+/F1 10 Tf
+1 0 0 1 64 411 Tm
+(* NotFoundException -> 404 Not Found) Tj
+/F1 10 Tf
+1 0 0 1 64 397 Tm
+(* ValidationException -> 400 Bad Request) Tj
+/F1 10 Tf
+1 0 0 1 64 383 Tm
+(* ArgumentException -> 400 Bad Request) Tj
+/F1 10 Tf
+1 0 0 1 64 369 Tm
+(* Unexpected exception -> 500 Internal Server Error) Tj
+/F1 10 Tf
+1 0 0 1 50 349 Tm
+(Why middleware is used:) Tj
+/F1 10 Tf
+1 0 0 1 50 329 Tm
+(It avoids repeated try/catch blocks in every controller.) Tj
+/F1 10 Tf
+1 0 0 1 50 309 Tm
+(Example response:) Tj
+/F1 10 Tf
+1 0 0 1 50 289 Tm
+({) Tj
+/F1 10 Tf
+1 0 0 1 50 275 Tm
+("statusCode": 404,) Tj
+/F1 10 Tf
+1 0 0 1 50 261 Tm
+("message": "Patient with id 999 was not found.") Tj
+/F1 10 Tf
+1 0 0 1 50 247 Tm
+(}) Tj
+/F2 14 Tf
+1 0 0 1 50 227 Tm
+(22. Validation) Tj
+/F1 10 Tf
+1 0 0 1 50 202 Tm
+(Validation happens in multiple places:) Tj
+/F1 10 Tf
+1 0 0 1 64 182 Tm
+(* DTO validation attributes) Tj
+/F1 10 Tf
+1 0 0 1 64 168 Tm
+(* RequestValidator helper) Tj
+/F1 10 Tf
+1 0 0 1 64 154 Tm
+(* Domain constructors and methods) Tj
+/F1 10 Tf
+1 0 0 1 50 134 Tm
+(Why multiple levels:) Tj
+/F1 10 Tf
+1 0 0 1 50 114 Tm
+(DTO validation checks incoming API data.) Tj
+/F1 10 Tf
+1 0 0 1 50 94 Tm
+(Application validation checks workflow rules.) Tj
+/F1 10 Tf
+1 0 0 1 50 74 Tm
+(Domain validation protects the core entity from invalid state.) Tj
+ET
+
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 19 0 R >>
+endobj
+21 0 obj
+<< /Length 2924 >>
+stream
+BT
+/F2 14 Tf
+1 0 0 1 50 795 Tm
+(23. Swagger) Tj
+/F1 10 Tf
+1 0 0 1 50 770 Tm
+(Swagger/OpenAPI gives an interactive API documentation page.) Tj
+/F1 10 Tf
+1 0 0 1 50 750 Tm
+(It helps developers:) Tj
+/F1 10 Tf
+1 0 0 1 64 730 Tm
+(* See all endpoints.) Tj
+/F1 10 Tf
+1 0 0 1 64 716 Tm
+(* Try requests.) Tj
+/F1 10 Tf
+1 0 0 1 64 702 Tm
+(* Inspect request and response models.) Tj
+/F1 10 Tf
+1 0 0 1 64 688 Tm
+(* Test the API without Postman.) Tj
+/F1 10 Tf
+1 0 0 1 50 668 Tm
+(Swagger is enabled in development.) Tj
+/F2 14 Tf
+1 0 0 1 50 648 Tm
+(24. SQLite) Tj
+/F1 10 Tf
+1 0 0 1 50 623 Tm
+(SQLite is used as a lightweight database.) Tj
+/F1 10 Tf
+1 0 0 1 50 603 Tm
+(Why SQLite is good for this project:) Tj
+/F1 10 Tf
+1 0 0 1 64 583 Tm
+(* Simple setup.) Tj
+/F1 10 Tf
+1 0 0 1 64 569 Tm
+(* Good for interview practice.) Tj
+/F1 10 Tf
+1 0 0 1 64 555 Tm
+(* No separate database server needed.) Tj
+/F1 10 Tf
+1 0 0 1 64 541 Tm
+(* Works well with EF Core.) Tj
+/F1 10 Tf
+1 0 0 1 50 521 Tm
+(The connection string is stored in appsettings.json:) Tj
+/F1 10 Tf
+1 0 0 1 50 501 Tm
+(Data Source=patientcare.db) Tj
+/F2 14 Tf
+1 0 0 1 50 481 Tm
+(25. GitHub Workflow) Tj
+/F1 10 Tf
+1 0 0 1 50 456 Tm
+(The project is built feature by feature.) Tj
+/F1 10 Tf
+1 0 0 1 50 436 Tm
+(Branch strategy:) Tj
+/F1 10 Tf
+1 0 0 1 64 416 Tm
+(* main = stable final code) Tj
+/F1 10 Tf
+1 0 0 1 64 402 Tm
+(* development = integration branch) Tj
+/F1 10 Tf
+1 0 0 1 64 388 Tm
+(* feature/* = one feature at a time) Tj
+/F1 10 Tf
+1 0 0 1 50 368 Tm
+(Typical feature flow:) Tj
+/F1 10 Tf
+1 0 0 1 50 348 Tm
+(1. Start from development.) Tj
+/F1 10 Tf
+1 0 0 1 50 334 Tm
+(2. Create a feature branch.) Tj
+/F1 10 Tf
+1 0 0 1 50 320 Tm
+(3. Code the feature.) Tj
+/F1 10 Tf
+1 0 0 1 50 306 Tm
+(4. Run build/tests.) Tj
+/F1 10 Tf
+1 0 0 1 50 292 Tm
+(5. Commit.) Tj
+/F1 10 Tf
+1 0 0 1 50 278 Tm
+(6. Push branch.) Tj
+/F1 10 Tf
+1 0 0 1 50 264 Tm
+(7. Open pull request into development.) Tj
+/F1 10 Tf
+1 0 0 1 50 250 Tm
+(8. Resolve conflicts if needed.) Tj
+/F1 10 Tf
+1 0 0 1 50 236 Tm
+(9. Merge PR.) Tj
+/F2 14 Tf
+1 0 0 1 50 216 Tm
+(26. Feature Timeline) Tj
+/F1 10 Tf
+1 0 0 1 50 191 Tm
+(Completed features:) Tj
+/F1 10 Tf
+1 0 0 1 64 171 Tm
+(* Feature 01: Solution structure and Domain model) Tj
+/F1 10 Tf
+1 0 0 1 64 157 Tm
+(* Feature 02: DTOs, repository interfaces, service interfaces, Unit of Work) Tj
+/F1 10 Tf
+1 0 0 1 64 143 Tm
+(contract) Tj
+/F1 10 Tf
+1 0 0 1 64 129 Tm
+(* Feature 03: Application services, validation, mapping, NotFoundException) Tj
+/F1 10 Tf
+1 0 0 1 64 115 Tm
+(* Feature 04: EF Core DbContext, repository implementations, UnitOfWork) Tj
+/F1 10 Tf
+1 0 0 1 64 101 Tm
+(implementation) Tj
+/F1 10 Tf
+1 0 0 1 64 87 Tm
+(* Feature 05: API dependency injection, Swagger, controllers) Tj
+/F1 10 Tf
+1 0 0 1 64 73 Tm
+(* Feature 06: Global error handling middleware) Tj
+ET
+
+endstream
+endobj
+22 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 21 0 R >>
+endobj
+23 0 obj
+<< /Length 3272 >>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 795 Tm
+(Remaining features:) Tj
+/F1 10 Tf
+1 0 0 1 64 775 Tm
+(* Feature 07: EF Core migrations and database creation) Tj
+/F1 10 Tf
+1 0 0 1 64 761 Tm
+(* Feature 08: Unit tests) Tj
+/F1 10 Tf
+1 0 0 1 64 747 Tm
+(* Feature 09: GitHub Actions CI pipeline) Tj
+/F1 10 Tf
+1 0 0 1 64 733 Tm
+(* Feature 10: Dockerfile and Docker image workflow) Tj
+/F1 10 Tf
+1 0 0 1 64 719 Tm
+(* Feature 11: Final documentation cleanup and interview review) Tj
+/F2 14 Tf
+1 0 0 1 50 699 Tm
+(27. How To Run The API) Tj
+/F1 10 Tf
+1 0 0 1 50 674 Tm
+(Restore packages:) Tj
+/F1 10 Tf
+1 0 0 1 50 654 Tm
+(dotnet restore --configfile NuGet.Config) Tj
+/F1 10 Tf
+1 0 0 1 50 634 Tm
+(Build:) Tj
+/F1 10 Tf
+1 0 0 1 50 614 Tm
+(dotnet build --no-restore) Tj
+/F1 10 Tf
+1 0 0 1 50 594 Tm
+(Run:) Tj
+/F1 10 Tf
+1 0 0 1 50 574 Tm
+(dotnet run --project PatientCareApi.Api) Tj
+/F1 10 Tf
+1 0 0 1 50 554 Tm
+(Open Swagger:) Tj
+/F1 10 Tf
+1 0 0 1 50 534 Tm
+(https://localhost:<port>/swagger) Tj
+/F2 14 Tf
+1 0 0 1 50 514 Tm
+(28. How To Explain The Project In An Interview) Tj
+/F1 10 Tf
+1 0 0 1 50 489 Tm
+(You can say:) Tj
+/F1 10 Tf
+1 0 0 1 50 469 Tm
+(I built a healthcare REST API using ASP.NET Core and clean architecture. The Domain) Tj
+/F1 10 Tf
+1 0 0 1 50 455 Tm
+(layer contains the core business entities and rules. The Application layer contains) Tj
+/F1 10 Tf
+1 0 0 1 50 441 Tm
+(DTOs, service logic, repository interfaces, validation, mapping, and Unit of Work. The) Tj
+/F1 10 Tf
+1 0 0 1 50 427 Tm
+(Infrastructure layer implements persistence with EF Core and SQLite. The API layer) Tj
+/F1 10 Tf
+1 0 0 1 50 413 Tm
+(exposes REST endpoints through thin controllers, registers dependencies in Program.cs,) Tj
+/F1 10 Tf
+1 0 0 1 50 399 Tm
+(provides Swagger, and uses global error handling middleware.) Tj
+/F2 14 Tf
+1 0 0 1 50 379 Tm
+(29. Key Learning Points) Tj
+/F1 10 Tf
+1 0 0 1 64 354 Tm
+(* Keep business logic out of controllers.) Tj
+/F1 10 Tf
+1 0 0 1 64 340 Tm
+(* Use DTOs for API input and output.) Tj
+/F1 10 Tf
+1 0 0 1 64 326 Tm
+(* Use services for workflows.) Tj
+/F1 10 Tf
+1 0 0 1 64 312 Tm
+(* Use repository interfaces to hide database details.) Tj
+/F1 10 Tf
+1 0 0 1 64 298 Tm
+(* Use Infrastructure to implement EF Core persistence.) Tj
+/F1 10 Tf
+1 0 0 1 64 284 Tm
+(* Use Unit of Work to save changes.) Tj
+/F1 10 Tf
+1 0 0 1 64 270 Tm
+(* Use global middleware for consistent error responses.) Tj
+/F1 10 Tf
+1 0 0 1 64 256 Tm
+(* Use GitHub feature branches and pull requests.) Tj
+/F1 10 Tf
+1 0 0 1 64 242 Tm
+(* Keep documentation updated after every feature.) Tj
+/F2 14 Tf
+1 0 0 1 50 222 Tm
+(30. Final Advice For A Junior Developer) Tj
+/F1 10 Tf
+1 0 0 1 50 197 Tm
+(Do not try to understand everything at once.) Tj
+/F1 10 Tf
+1 0 0 1 50 177 Tm
+(Start with the flow of one request:) Tj
+/F1 10 Tf
+1 0 0 1 50 157 Tm
+(POST /api/patients) Tj
+/F1 10 Tf
+1 0 0 1 50 137 Tm
+(Then follow the code:) Tj
+/F1 10 Tf
+1 0 0 1 50 117 Tm
+(PatientsController -> IPatientService -> PatientService -> IPatientRepository ->) Tj
+/F1 10 Tf
+1 0 0 1 50 103 Tm
+(PatientRepository -> PatientCareDbContext -> SQLite) Tj
+/F1 10 Tf
+1 0 0 1 50 83 Tm
+(That request flow explains most of the architecture.) Tj
+ET
+
+endstream
+endobj
+24 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 23 0 R >>
+endobj
+xref
+0 25
+0000000000 65535 f 
+0000000010 00000 n 
+0000000062 00000 n 
+0000000187 00000 n 
+0000000260 00000 n 
+0000000338 00000 n 
+0000003558 00000 n 
+0000003697 00000 n 
+0000006345 00000 n 
+0000006484 00000 n 
+0000009216 00000 n 
+0000009356 00000 n 
+0000012202 00000 n 
+0000012343 00000 n 
+0000015231 00000 n 
+0000015372 00000 n 
+0000018383 00000 n 
+0000018524 00000 n 
+0000021328 00000 n 
+0000021469 00000 n 
+0000024271 00000 n 
+0000024412 00000 n 
+0000027392 00000 n 
+0000027533 00000 n 
+0000030861 00000 n 
+trailer
+<< /Size 25 /Root 1 0 R >>
+startxref
+31002
+%%EOF
