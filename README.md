@@ -17,6 +17,8 @@ The project is being built feature by feature so it can be demonstrated as both 
 
 ## Current Status
 
+Feature 02 adds the Application contracts.
+
 Completed so far:
 
 - Feature 01: solution structure and Domain model
@@ -30,7 +32,9 @@ Completed so far:
 
 ## How To Run
 
-The API can run after packages are restored and the database is created through EF Core migrations.
+The runnable API will be completed in a later feature after dependency injection and controllers are added.
+
+Later, the command will be:
 
 ```powershell
 dotnet restore --configfile NuGet.Config
@@ -102,5 +106,3 @@ git add .
 git commit -m "Add domain unit tests"
 git push -u origin feature/08-unit-tests
 ```
-
-See `GIT_WORKFLOW.md` for merge vs rebase notes.
