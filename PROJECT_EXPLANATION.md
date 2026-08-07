@@ -157,6 +157,40 @@ In an interview, you can explain it like this:
 
 > Application services throw meaningful exceptions. The API middleware catches those exceptions and translates them into proper HTTP status codes and JSON error responses.
 
+## How Unit Tests Work
+
+The first unit tests focus on Domain behavior.
+
+They verify:
+
+- creating a valid patient succeeds
+- creating a patient with an empty first name fails
+- completing an appointment changes the status to `Completed`
+
+These tests are fast because they do not use the API, EF Core, SQLite, or Swagger.
+
+In an interview, you can explain it like this:
+
+> I started testing the Domain layer first because it contains core business rules and has no external dependencies. These tests confirm that the entities protect valid state and important behavior works as expected.
+
+## How GitHub Actions CI Works
+
+GitHub Actions is used for continuous integration.
+
+The workflow runs automatically when code is pushed or when a pull request is opened against `development` or `main`.
+
+The CI workflow performs three main checks:
+
+1. Restore NuGet packages.
+2. Build the solution.
+3. Run the tests.
+
+If any step fails, the pull request shows a failed check. This helps prevent broken code from being merged.
+
+In an interview, you can explain it like this:
+
+> I added a GitHub Actions CI pipeline so every feature branch and pull request is checked automatically. The pipeline restores dependencies, builds the solution, runs tests, and uploads test result artifacts.
+
 ## Interview Explanation
 
 > I built a healthcare Web API using clean architecture. The Domain layer contains the business entities and rules. The Application layer contains DTOs, service contracts, service logic, repository contracts, and a Unit of Work contract. Infrastructure handles EF Core and SQLite. The Api layer exposes controllers and middleware.
