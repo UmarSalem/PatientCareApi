@@ -91,6 +91,27 @@ EF Core entity mapping is configured in `PatientCareDbContext`. API startup will
 
 `PatientCareDbContext` defines the `Patients`, `Treatments`, and `Appointments` tables, configures required fields, max lengths, relationships, cascade delete, and stores `AppointmentStatus` as a readable string.
 
+## How EF Core Migrations Work
+
+Migrations are versioned database schema changes.
+
+The first migration is `InitialCreate`. It creates:
+
+- `Patients`
+- `Treatments`
+- `Appointments`
+- foreign keys from treatments and appointments to patients
+- indexes for patient lookup
+- `__EFMigrationsHistory`, which EF Core uses to track applied migrations
+
+The migration files are committed to Git. The generated SQLite database file is not committed because it is a local runtime artifact.
+
+To apply migrations:
+
+```powershell
+dotnet ef database update --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api
+```
+
 ## How Repository Implementations Work
 
 Repository interfaces live in Application. Repository implementations live in Infrastructure because they use EF Core.
@@ -136,6 +157,22 @@ This keeps controllers clean because they do not need repeated `try/catch` block
 In an interview, you can explain it like this:
 
 > Application services throw meaningful exceptions. The API middleware catches those exceptions and translates them into proper HTTP status codes and JSON error responses.
+
+## How Unit Tests Work
+
+The first unit tests focus on Domain behavior.
+
+They verify:
+
+- creating a valid patient succeeds
+- creating a patient with an empty first name fails
+- completing an appointment changes the status to `Completed`
+
+These tests are fast because they do not use the API, EF Core, SQLite, or Swagger.
+
+In an interview, you can explain it like this:
+
+> I started testing the Domain layer first because it contains core business rules and has no external dependencies. These tests confirm that the entities protect valid state and important behavior works as expected.
 
 ## Interview Explanation
 

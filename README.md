@@ -27,6 +27,8 @@ Completed so far:
 - Feature 04: EF Core DbContext, repository implementations, and Unit of Work implementation
 - Feature 05: API dependency injection, Swagger UI, connection string, and REST controllers
 - Feature 06: Global error handling middleware
+- Feature 07: Initial EF Core migration and SQLite database creation
+- Feature 08: Domain unit tests
 
 ## How To Run
 
@@ -35,12 +37,28 @@ The runnable API will be completed in a later feature after dependency injection
 Later, the command will be:
 
 ```powershell
+dotnet restore --configfile NuGet.Config
+dotnet ef database update --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api
 dotnet run --project PatientCareApi.Api
+```
+
+## How To Run Migrations
+
+Create a new migration after changing the EF Core model:
+
+```powershell
+dotnet ef migrations add MigrationName --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api --output-dir Data\Migrations
+```
+
+Apply migrations to SQLite:
+
+```powershell
+dotnet ef database update --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api
 ```
 
 ## How To Run Tests
 
-Tests will be added in a later feature.
+Run the test suite:
 
 ```powershell
 dotnet test
@@ -74,17 +92,17 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 06:
+For Feature 08:
 
 ```powershell
-git stash push -u -m "feature 06 error handling"
+git stash push -u -m "feature 08 unit tests"
 git checkout development
 git pull origin development
-git checkout -B feature/06-error-handling
+git checkout -B feature/08-unit-tests
 git stash pop
 dotnet restore --configfile NuGet.Config
-dotnet build --no-restore
+dotnet test --no-restore
 git add .
-git commit -m "Add global error handling middleware"
-git push -u origin feature/06-error-handling
+git commit -m "Add domain unit tests"
+git push -u origin feature/08-unit-tests
 ```

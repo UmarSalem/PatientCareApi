@@ -376,3 +376,142 @@ Create the pull request:
 base: development
 compare: feature/06-error-handling
 ```
+
+## Feature 07: EF Core Migrations And Database Setup
+
+### What Was Created
+
+- Initial EF Core migration:
+  - `InitialCreate`
+- Migration model snapshot:
+  - `PatientCareDbContextModelSnapshot`
+- SQLite database was created locally by applying the migration.
+
+### Why It Was Created
+
+The DbContext describes the database model in C# code. Migrations turn that model into database schema changes.
+
+This feature creates the first database schema for:
+
+- Patients
+- Treatments
+- Appointments
+
+### Main Logic
+
+`InitialCreate` creates the main tables, primary keys, foreign keys, and indexes.
+
+EF Core also creates `__EFMigrationsHistory` in the database. That table tracks which migrations have already been applied.
+
+The migration files should be committed to Git. The generated `patientcare.db` file should not be committed because each developer can create it locally with `database update`.
+
+### Files Changed
+
+- `PatientCareApi.Infrastructure/Data/Migrations/20260625070821_InitialCreate.cs`
+- `PatientCareApi.Infrastructure/Data/Migrations/20260625070821_InitialCreate.Designer.cs`
+- `PatientCareApi.Infrastructure/Data/Migrations/PatientCareDbContextModelSnapshot.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `API_ENDPOINTS.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+Run:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet build --no-restore
+dotnet ef database update --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api
+```
+
+### How To Explain It In An Interview
+
+> I added the initial EF Core migration to create the SQLite database schema. The migration creates tables for patients, treatments, and appointments, including relationships and indexes. I commit migration files to Git, but not the generated database file, because each environment can create its own database by running `dotnet ef database update`.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 07 efcore migrations"       # Save current uncommitted changes, including new files
+git checkout development                                  # Switch to development branch
+git pull origin development                               # Get latest development code
+git checkout -B feature/07-efcore-migrations              # Create/reset Feature 07 branch
+git stash pop                                             # Bring Feature 07 changes back
+dotnet restore --configfile NuGet.Config                  # Restore packages
+dotnet build --no-restore                                 # Confirm build
+dotnet ef database update --project PatientCareApi.Infrastructure --startup-project PatientCareApi.Api  # Create/update local SQLite DB
+git add .                                                 # Stage all files except ignored DB files
+git commit -m "Add initial EF Core migration"             # Commit feature
+git push -u origin feature/07-efcore-migrations           # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/07-efcore-migrations
+```
+
+## Feature 08: Domain Unit Tests
+
+### What Was Created
+
+- `PatientTests`
+- `AppointmentTests`
+
+### Why It Was Created
+
+Unit tests verify important behavior without manually testing through Swagger or the database.
+
+The first tests focus on Domain rules because Domain is independent from EF Core and ASP.NET Core.
+
+### Tests Added
+
+- Creating a valid patient should succeed.
+- Creating a patient with an empty first name should fail.
+- Completing an appointment should change status to `Completed`.
+
+### Files Changed
+
+- `PatientCareApi.Tests/Domain/PatientTests.cs`
+- `PatientCareApi.Tests/Domain/AppointmentTests.cs`
+- `README.md`
+- `PROJECT_EXPLANATION.md`
+- `ARCHITECTURE.md`
+- `LEARNING_NOTES.md`
+
+### How To Test It
+
+Run:
+
+```powershell
+dotnet restore --configfile NuGet.Config
+dotnet test --no-restore
+```
+
+### How To Explain It In An Interview
+
+> I added unit tests for core domain behavior. These tests do not need a database or API server. They verify that a valid patient can be created, invalid patient names are rejected, and appointment completion changes the domain status correctly.
+
+### GitHub Commands For This Feature
+
+```powershell
+git stash push -u -m "feature 08 unit tests"       # Save current uncommitted changes, including new files
+git checkout development                           # Switch to development branch
+git pull origin development                        # Get latest development code
+git checkout -B feature/08-unit-tests              # Create/reset Feature 08 branch
+git stash pop                                      # Bring Feature 08 changes back
+dotnet restore --configfile NuGet.Config           # Restore packages
+dotnet test --no-restore                           # Run tests
+git add .                                          # Stage all files
+git commit -m "Add domain unit tests"              # Commit feature
+git push -u origin feature/08-unit-tests           # Push branch
+```
+
+Create the pull request:
+
+```text
+base: development
+compare: feature/08-unit-tests
+```

@@ -55,6 +55,8 @@ Current Infrastructure folders:
 
 `PatientCareDbContext` maps domain entities to database tables. Repository classes use EF Core to query and stage changes. `UnitOfWork` calls `SaveChangesAsync` once a service workflow is ready to commit.
 
+Migrations live in `PatientCareApi.Infrastructure/Data/Migrations` because they are database schema details. The API project is used as the startup project so EF Core can read configuration and dependency injection setup.
+
 ### PatientCareApi.Api
 
 Contains controllers, dependency injection, Swagger/OpenAPI, appsettings, and global error handling middleware.
@@ -67,7 +69,9 @@ Api depends on Application and Infrastructure.
 
 ### PatientCareApi.Tests
 
-Will contain unit tests for domain behavior and application services.
+Contains unit tests for domain behavior. Application service tests can be added later.
+
+The first tests focus on Domain because Domain has no dependency on EF Core, ASP.NET Core, or the database. That makes the tests fast and stable.
 
 ## Dependency Direction
 
