@@ -80,3 +80,7 @@ The important rule is that Domain has no dependency on EF Core, ASP.NET Core, or
 The repository contains a GitHub Actions workflow in `.github/workflows/dotnet-ci.yml`.
 
 The CI pipeline validates the architecture by restoring, building, and testing the solution automatically on GitHub.
+
+The repository also contains a Docker image workflow in `.github/workflows/docker-image.yml`.
+
+That workflow builds the API container image and can publish it to GitHub Container Registry.
