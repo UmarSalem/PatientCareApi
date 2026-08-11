@@ -61,9 +61,11 @@ Api depends on Application and Infrastructure.
 
 ### PatientCareApi.Tests
 
-Contains unit tests for domain behavior. Application service tests can be added later.
+Contains unit tests for domain behavior and integration tests for API endpoints.
 
-The first tests focus on Domain because Domain has no dependency on EF Core, ASP.NET Core, or the database. That makes the tests fast and stable.
+The Domain tests are fast because Domain has no dependency on EF Core, ASP.NET Core, or the database.
+
+The API integration tests use `WebApplicationFactory` to start the Web API in memory. They replace the normal database with in-memory SQLite so endpoint tests can exercise controllers, services, repositories, EF Core, middleware, and JSON serialization without touching the local app database.
 
 ## Dependency Direction
 

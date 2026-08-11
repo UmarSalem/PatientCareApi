@@ -13,7 +13,7 @@ The project is being built feature by feature so it can be demonstrated as both 
 - Swagger/OpenAPI
 - xUnit
 - GitHub Actions CI/CD
-- Docker, planned for a later feature
+- Docker
 
 ## Current Status
 
@@ -29,6 +29,7 @@ Completed so far:
 - Feature 08: Domain unit tests
 - Feature 09: GitHub Actions CI pipeline
 - Feature 10: Dockerfile and Docker image workflow
+- Feature 11: API integration tests with in-memory SQLite
 
 ## How To Run
 
@@ -61,6 +62,8 @@ Run the test suite:
 ```powershell
 dotnet test
 ```
+
+The tests include fast Domain unit tests and API integration tests that start the Web API in memory.
 
 ## CI Pipeline
 
@@ -127,19 +130,19 @@ https://localhost:<port>/swagger
 
 Each feature should be committed on its own branch and pushed to GitHub.
 
-For Feature 10:
+For Feature 11:
 
 ```powershell
-git stash push -u -m "feature 10 docker image workflow"
+git stash push -u -m "feature 11 api integration tests"
 git checkout development
 git pull origin development
-git checkout -B feature/10-docker-image-workflow
+git checkout -B feature/11-api-integration-tests
 git stash pop
 dotnet restore --configfile NuGet.Config
 dotnet test --no-restore
 git add .
-git commit -m "Add Docker image workflow"
-git push -u origin feature/10-docker-image-workflow
+git commit -m "Add API integration tests"
+git push -u origin feature/11-api-integration-tests
 ```
 
 See `GIT_WORKFLOW.md` for merge vs rebase notes.

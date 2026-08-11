@@ -173,6 +173,22 @@ In an interview, you can explain it like this:
 
 > I started testing the Domain layer first because it contains core business rules and has no external dependencies. These tests confirm that the entities protect valid state and important behavior works as expected.
 
+## How API Integration Tests Work
+
+The API integration tests start the ASP.NET Core application in memory by using `WebApplicationFactory`.
+
+The test factory replaces the normal SQLite file database with an in-memory SQLite database. This keeps tests fast and isolated while still testing real EF Core behavior.
+
+The integration tests verify:
+
+- creating a patient through `POST /api/patients`
+- returning `404 Not Found` for a missing patient
+- creating and completing an appointment through real HTTP endpoints
+
+In an interview, you can explain it like this:
+
+> Unit tests check business rules in isolation. Integration tests check that the API pipeline works end to end: controller, dependency injection, service, repository, EF Core, middleware, and JSON response.
+
 ## How GitHub Actions CI Works
 
 GitHub Actions is used for continuous integration.
