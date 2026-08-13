@@ -39,6 +39,7 @@ public class Patient
     public IReadOnlyCollection<Treatment> Treatments => _treatments.AsReadOnly();
     public IReadOnlyCollection<Appointment> Appointments => _appointments.AsReadOnly();
 
+    // Updating through a method keeps validation and timestamp changes in one place.
     public void Update(string firstName, string lastName, DateTime dateOfBirth, string? email, string? phoneNumber)
     {
         ValidateRequiredName(firstName, nameof(firstName));

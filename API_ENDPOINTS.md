@@ -46,7 +46,20 @@ Feature 05 implements these endpoints through controllers. Feature 06 adds globa
 - Unit of Work implementation for committing changes
 - Initial EF Core migration for the SQLite schema
 
-## Controllers Implemented
+## DTOs Added
+
+### Patients
+
+- `CreatePatientRequest`
+- `UpdatePatientRequest`
+- `PatientResponse`
+
+### Treatments
+
+- `CreateTreatmentRequest`
+- `TreatmentResponse`
+
+### Appointments
 
 - `PatientsController`
 - `TreatmentsController`
